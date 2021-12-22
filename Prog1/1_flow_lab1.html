@@ -27,8 +27,6 @@
     </style>
   </head>
   <body>
-    <div class="box-container"></div>
-
     <script>
       function createBox(boxName) {
         // En kontrollsats som kollar så att parametern boxName är satt
@@ -42,14 +40,15 @@
         newBox.classList.add("box");
         newBox.classList.add("box--" + boxName);
 
-        // Hittar div-elementet med klassen box-container
-        const boxContainer = document.querySelector(".box-container");
+        // Hittar body-elementet i HTML-dokumentet.
+        const bodyElement = document.querySelector("body");
         // Lägger till newBox till detta element
-        boxContainer.appendChild(newBox);
+        bodyElement.appendChild(newBox);
       }
 
       createBox("red");
       createBox("blue");
+      document.write("red");
       createBox("green");
 
       /*
@@ -58,14 +57,30 @@
 
       Använd funktionen createBox för att skapa 3 lådor i olika färg.
 
+      Testa sedan att använda funktionen document.write, och vad som händer om du byter ordning på raderna.
+
+      */
+
+      /*
+      
       Hur funktionen createBox fungerar:
       Du skapar en box genom att skriva så här:
       createBox("blue");
-
+      
       "blue" är färgen på boxen som skapas.
       Du kan välja mellan "red", "blue", eller "green".
       Om ingen färg anges (createBox();) kommer ett felmeddelande skrivas ut.
       Om en färg eller värde som inte är "red", "blue", eller "green" anges, blir boxens färg grå.
+      
+      Observera att createBox är en funktion som är en del av skriptet.
+
+      Hur funktionen document.write fungerar:
+      Funktionen skriver ut ett meddelande i HTMLdokumentet, så här:
+      document.write("message"); där message är meddelandet som ska skrivas ut.
+      Till exempel;
+      document.write("Hello world!");
+
+      Funktionen document.write fungerar i webbläsare men kanske inte i andra användningsområden (så som nodeJS).
 
       */
     </script>
