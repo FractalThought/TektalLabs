@@ -5,6 +5,8 @@ Därför är console-log i node problematisk då node saknar prompts.
 
 Att använda js i sin naturliga miljö, i webbläsaren, där output kan visas både i console och på sidan, men input kan ske från input-element så väl som webbsidans REPL.
 
+Borde egentligen bara ha instruktioner i labb-filerna, samt länkar till resurser (så som Tektal och MDN).
+
 ## Wes bos style
 
 Skapa hela mappar med övningar där instruktionerna är skrivna i kommentarer
