@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title></title>
+    <style>
+      .box {
+        width: 50px;
+        height: 50px;
+        box-sizing: border-box;
+        background: gray;
+      }
+
+      .box--red {
+        background: red;
+      }
+
+      .box--blue {
+        background: blue;
+      }
+
+      .box--green {
+        background: green;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box-container"></div>
+
+    <script>
+      function createBox(boxName) {
+        // En kontrollsats som kollar så att parametern boxName är satt
+        // Om inte satt, skriv ut ett felmeddelande och returnera (avsluta) funktionen
+        if (boxName === null || boxName === undefined) {
+          console.log("Error: boxName must be defined.");
+          return;
+        }
+
+        const newBox = document.createElement("div");
+        newBox.classList.add("box");
+        newBox.classList.add("box--" + boxName);
+
+        // Hittar div-elementet med klassen box-container
+        const boxContainer = document.querySelector(".box-container");
+        // Lägger till newBox till detta element
+        boxContainer.appendChild(newBox);
+      }
+
+      createBox("red");
+      createBox("blue");
+      createBox("green");
+
+      /*
+      
+      Instruktioner:
+
+      Använd funktionen createBox för att skapa 3 lådor i olika färg.
+
+      Hur funktionen createBox fungerar:
+      Du skapar en box genom att skriva så här:
+      createBox("blue");
+
+      "blue" är färgen på boxen som skapas.
+      Du kan välja mellan "red", "blue", eller "green".
+      Om ingen färg anges (createBox();) kommer ett felmeddelande skrivas ut.
+      Om en färg eller värde som inte är "red", "blue", eller "green" anges, blir boxens färg grå.
+
+      */
+    </script>
+  </body>
+</html>

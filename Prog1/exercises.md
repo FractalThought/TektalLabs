@@ -139,3 +139,16 @@ Tidsbokning Frisör
 Årshjul
 
 Grafisk presentation av data?
+
+Nyttja Random-funktionen på intressant sätt
+
+Tidskalkylationer
+
+Konvertera timmar och minuter till endast timmar.
+
+## MovieTime
+Skriv in när du ska gå och lägga dig/när du behöver avsluta, få förslag på filmer du kan se.
+
+Bonusar:
+Filmer du kan se om du kör 1.25 Speed
+Antal avsnitt av en serie
