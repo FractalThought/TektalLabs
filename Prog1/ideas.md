@@ -7,6 +7,9 @@ Bra sätt att förenkla koden, enda nackdelen är att eleverna behöver ladda ne
 Kan hjälpskripten vara online?
 Inte helt fan av det, delvis pga cross-site scripting, delvis pga då krävs internet.
 
+Nackdelen är att helperfilerna döljer då koden vilket gör att eleverna inte kan lära sig koden från kopiering/imitering.
+
+Helperfilerna behöver också arbeta utifrån generiska saker och kan inte vara anpassade för den specifika laborationen.
 
 # Generella
 
