@@ -12,9 +12,12 @@
     </style>
   </head>
   <body>
-    <p>Enter för att skicka</p>
+    <h1>Namnlista</h1>
+    <p>Fyll i ditt namn och skicka in för att bli uppskriven på namnlistan.</p>
+    <p>Enter eller tryck på knappen för att skicka.</p>
     <label for="newName">Nytt namn</label>
     <input type="text" id="newName" placeholder="Nytt namn" />
+    <button id="submitButton">Skicka in</button>
 
     <script>
       // Ditt skript här
@@ -26,11 +29,34 @@
           event.target.value = "";
         }
       });
+
+      const submitButton = document.getElementById("submitButton");
+      submitButton.addEventListener("click", (e) => {
+        const value = newNameInput.value;
+        submit(value);
+        newNameInput.value = "";
+      });
+
       //#endregion
 
+      /*
+      
+      Funktionen submit tar in ett värde och anropas när användaren skickar in ett nytt namn.
+
+      */
+
       function submit(value) {
-        console.log(value);
         // Fortsätt här
+        /*
+        
+        Instruktioner:
+
+        Lagra värdet i en variabel.
+        Skriv ut "Hej <namn>!" i en Alert
+
+            alert("message")
+
+        */
       }
     </script>
   </body>
