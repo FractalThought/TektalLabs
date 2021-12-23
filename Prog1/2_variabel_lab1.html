@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title></title>
+    <style>
+      /*
+    Eventuell styling här (CSS)
+    */
+    </style>
+  </head>
+  <body>
+    <p>Enter för att skicka</p>
+    <label for="newName">Nytt namn</label>
+    <input type="text" id="newName" placeholder="Nytt namn" />
+
+    <script>
+      // Ditt skript här
+      //#region Kod för att hämta värde från input
+      const newNameInput = document.getElementById("newName");
+      newNameInput.addEventListener("keydown", function (event) {
+        if (event.key === "Enter") {
+          submit(event.target.value);
+          event.target.value = "";
+        }
+      });
+      //#endregion
+
+      function submit(value) {
+        console.log(value);
+        // Fortsätt här
+      }
+    </script>
+  </body>
+</html>
