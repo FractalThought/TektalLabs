@@ -36,6 +36,7 @@
           return;
         }
 
+        // Skapar en ny div och sätter dess klasser till box och box--boxName (där boxName är färgen, tex green)
         const newBox = document.createElement("div");
         newBox.classList.add("box");
         newBox.classList.add("box--" + boxName);
@@ -46,9 +47,20 @@
         bodyElement.appendChild(newBox);
       }
 
+      function addMessage(message) {
+        // Skapar en ny paragraf och sätter dess text till message
+        const newMessage = document.createElement("p");
+        newMessage.innerText = message;
+
+        // Hittar body-elementet i HTML-dokumentet.
+        const bodyElement = document.querySelector("body");
+        // Lägger till newMessage till detta element
+        bodyElement.appendChild(newMessage);
+      }
+
       createBox("red");
       createBox("blue");
-      document.write("red");
+      addMessage("red");
       createBox("green");
 
       /*
@@ -57,7 +69,7 @@
 
       Använd funktionen createBox för att skapa 3 lådor i olika färg.
 
-      Testa sedan att använda funktionen document.write, och vad som händer om du byter ordning på raderna.
+      Testa sedan att använda funktionen addMessage, och vad som händer om du byter ordning på raderna.
 
       */
 
@@ -71,16 +83,23 @@
       Du kan välja mellan "red", "blue", eller "green".
       Om ingen färg anges (createBox();) kommer ett felmeddelande skrivas ut.
       Om en färg eller värde som inte är "red", "blue", eller "green" anges, blir boxens färg grå.
+
       
-      Observera att createBox är en funktion som är en del av skriptet.
+      Hur funktionen addMessage fungerar:
+      Du skriver ut ett meddelande som läggs till i dokumentet, så här;
 
-      Hur funktionen document.write fungerar:
-      Funktionen skriver ut ett meddelande i HTMLdokumentet, så här:
-      document.write("message"); där message är meddelandet som ska skrivas ut.
-      Till exempel;
-      document.write("Hello world!");
+      addMessage("message"); där "message" är meddelandet, och message (utan citattecknena) är det som skrivs ut.
 
-      Funktionen document.write fungerar i webbläsare men kanske inte i andra användningsområden (så som nodeJS).
+      Observera att createBox och addMessage funktioner som är en del av skriptet.
+
+      Hur funktionen console.log fungerar:
+      console.log skriver ut ett meddelande i konsolen där skriptet körs.
+      I en webbläsare kan du öppna Developer Tools (Ctrl+Shift+I) och därifrån öppna Konsol/Console.
+
+      Exempel:
+      console.log("Hello world!");
+      Skriver ut "Hello world!" i konsolen, utan citattecknen ("").
+
 
       */
     </script>
