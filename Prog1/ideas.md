@@ -1,3 +1,13 @@
+# Separata helper-files?
+
+Ha funktionsskript som varje labb importerar?
+Istället för att ha dem i varje labb.
+Bra sätt att förenkla koden, enda nackdelen är att eleverna behöver ladda ner hjälpskripten.
+
+Kan hjälpskripten vara online?
+Inte helt fan av det, delvis pga cross-site scripting, delvis pga då krävs internet.
+
+
 # Generella
 
 Input är en viktig del för att lära sig programmering, att testa hur ett program reagerar beroende på input från användaren.
