@@ -11,6 +11,8 @@ Nackdelen är att helperfilerna döljer då koden vilket gör att eleverna inte 
 
 Helperfilerna behöver också arbeta utifrån generiska saker och kan inte vara anpassade för den specifika laborationen.
 
+CSS kan vara en separat fil.
+
 # Generella
 
 Input är en viktig del för att lära sig programmering, att testa hur ett program reagerar beroende på input från användaren.
