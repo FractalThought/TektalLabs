@@ -152,3 +152,8 @@ Skriv in när du ska gå och lägga dig/när du behöver avsluta, få förslag p
 Bonusar:
 Filmer du kan se om du kör 1.25 Speed
 Antal avsnitt av en serie
+
+
+## Svår övning:
+
+Du har siffrorna 1 till 9. Du ska sortera dem i arrayer som är lika stora och jämt fördelad, och där ingen siffra i någon array följs av den näst följande siffran i vanlig talföljd (tex 1, 2, 3, 4).
