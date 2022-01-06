@@ -13,6 +13,62 @@ Helperfilerna behöver också arbeta utifrån generiska saker och kan inte vara 
 
 CSS kan vara en separat fil.
 
+# Bibliotek
+
+## GSAP
+
+https://greensock.com/gsap/
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+
+## D3 vs Charts
+
+https://d3js.org/
+
+<script src="https://d3js.org/d3.v7.min.js"></script>
+
+https://www.chartjs.org/
+
+https://www.createwithdata.com/d3js-or-chartjs/
+
+## Agolia Places
+
+https://community.algolia.com/places/
+
+Adress auto-completion
+
+## Moment.js
+
+https://momentjs.com/
+
+Datum och tid
+
+## Three.js
+
+https://threejs.org/
+
+3D animation
+
+## Axios
+
+https://axios-http.com/
+
+HTTP-requests
+
+## VideoJS
+
+https://videojs.com/getting-started/
+
+Video embedding
+
+## Phaser
+
+https://phaser.io/
+
+HTML5 game framework
+
+
+
 # Generella
 
 Input är en viktig del för att lära sig programmering, att testa hur ett program reagerar beroende på input från användaren.
