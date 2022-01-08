@@ -22,7 +22,9 @@ Skriver ut en siffra du skrivit in plus sig själv, upphöjt i sig själv, och m
 
 # Kontrollsatser
 
-Skriv in lösenord, om samma,
+Skriv in lösenord, om samma, visa meddelande.
+
+Öka siffra för varje gång du klickar. Om 3 eller mer, gör något.
 
 Hangman
 
@@ -31,6 +33,10 @@ Hangman
 # Loopövningar
 
 Skriv in en siffra, rita ut så många boxar
+
+Gör mönster
+
+Använd två loopar för att göra ett mönster
 
 # Arrayövningar
 
