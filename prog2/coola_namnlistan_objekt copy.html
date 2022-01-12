@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Coola namnlistan</title>
+    <style>
+      body {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        margin: 0;
+        padding: 1em;
+        background-color: rgb(100, 100, 100);
+      }
+
+      #main-heading {
+        font-size: 2.5em;
+        color: white;
+      }
+
+      main {
+        margin: 0 auto;
+        width: 70vw;
+      }
+
+      div {
+        margin: 0 0 1em 0;
+        padding: 0.5em;
+        background-color: lightgray;
+      }
+
+      input,
+      button {
+        font-size: 1.5em;
+        padding: 0.25em 0.5em;
+      }
+
+      button {
+        background-color: rgb(6, 134, 6);
+        border: 1px solid grey;
+        color: white;
+        transition: all 0.4s ease;
+      }
+
+      button:hover {
+        background-color: rgb(13, 204, 13);
+        cursor: pointer;
+      }
+
+      li {
+        margin: 0.25em 0;
+      }
+
+      ol button {
+        background-color: rgb(231, 6, 6);
+        font-size: 1em;
+      }
+
+      ol button:hover {
+        background-color: rgb(255, 117, 117);
+      }
+
+      #possibleEmojis {
+        display: flex;
+      }
+
+      #possibleEmojis span {
+        font-size: 2em;
+        margin-right: 0.25em;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1 id="main-heading">Den coola namnlistan</h1>
+      <div>
+        <h1>Lägg till namn</h1>
+        <input type="text" name="name" id="name" placeholder="Namn" />
+        <input
+          type="text"
+          name="birthYear"
+          id="birthYear"
+          placeholder="Födelseår"
+        />
+        <button id="submitButton">Lägg till</button>
+      </div>
+
+      <div id="personListContainer">
+        <h1>Namnlista</h1>
+        <ol id="personList">
+          <li>😎 Felix, 29år, myndig <button>Ta bort</button></li>
+          <li>😀 Anna, 30år, myndig <button>Ta bort</button></li>
+          <li>🤠 Oliver, 2år <button>Ta bort</button></li>
+          <li>😮 Erik, 0år <button>Ta bort</button></li>
+        </ol>
+      </div>
+
+      <div>
+        <h1>Möjliga emojis:</h1>
+        <div id="possibleEmojis"></div>
+      </div>
+    </main>
+
+    <script>
+      // Skapar en array av emoji, använder const för att arrayen inte ska ändras.
+      const emojiArray = ["😀", "😂", "😅", "😋", "😎", "😮", "🤠", "🧐"];
+
+      // Sparar vår submitknapp och vår personlista i variabler
+      const submitButton = document.getElementById("submitButton");
+      const personList = document.getElementById("personList");
+
+      // Sparar våra inputs så vi kan hämta deras värde (.value)
+      const nameInput = document.getElementById("name");
+      const birthYearInput = document.getElementById("birthYear");
+
+      // Sätter knappens klick-funktion
+      submitButton.addEventListener("click", buttonClick);
+
+      // array som nya personerna ska läggas till i.
+      const addedPersons = [];
+
+      let currentYear = 2022;
+
+      function deletePerson(event) {
+        // Remove person
+        // li > button (triggers the event)
+        // remove() // tar bort elementet
+        event.target.parentElement.remove();
+      }
+
+      class Person {
+        constructor(name, birthYear) {
+          this.name = name;
+          this.age = currentYear - birthYear;
+        }
+
+        isPersonOfAge() {
+          return this.age >= 18;
+        }
+      }
+
+      // Funktion som körs när knappen trycks
+      function buttonClick(event) {
+        const newPerson = new Person(nameInput.value, birthYearInput.value);
+        console.log(newPerson.isPersonOfAge());
+
+        let newPersonName = nameInput.value;
+        let newPersonAge = currentYear - birthYearInput.value;
+
+        let newPersonIsOfAge = false;
+        if (newPersonAge >= 18) {
+          newPersonIsOfAge = true;
+        }
+
+        let randomEmojiIndex = Math.floor(Math.random() * emojiArray.length);
+        console.log(randomEmojiIndex);
+
+        let newPersonOutput =
+          emojiArray[randomEmojiIndex] +
+          " " +
+          newPersonName +
+          ", " +
+          newPersonAge +
+          "år";
+
+        if (newPersonIsOfAge) {
+          newPersonOutput += ", myndig";
+        }
+
+        let newListItem = document.createElement("li");
+        newListItem.innerText = newPersonOutput;
+
+        let newDeleteButton = document.createElement("button");
+        newDeleteButton.innerText = "Ta bort";
+
+        newDeleteButton.addEventListener("click", deletePerson);
+
+        newListItem.appendChild(newDeleteButton);
+
+        personList.appendChild(newListItem);
+
+        // Rensar input (låt detta vara i slutet av denna funktionen)
+        nameInput.value = "";
+        birthYearInput.value = "";
+      }
+
+      const possibleEmojiDiv = document.getElementById("possibleEmojis");
+
+      for (let i = 0; i < emojiArray.length; i++) {
+        const element = emojiArray[i];
+        console.log(element);
+
+        let possibleEmoji = document.createElement("p");
+        possibleEmoji.innerText = element;
+        possibleEmojiDiv.appendChild(possibleEmoji);
+      }
+    </script>
+  </body>
+</html>
