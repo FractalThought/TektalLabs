@@ -6,33 +6,161 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title></title>
 
-    <style></style>
+    <style>
+      body {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        margin: 0 auto;
+        width: 50vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      h2 {
+        font-size: 3em;
+        margin-top: 0;
+      }
+
+      button {
+        background: #333333;
+        color: #f2f2f2;
+        border-radius: 5px;
+        border: none;
+        font-size: 2em;
+        padding: 0.25em 0.5em;
+        transition: all 0.2s ease-in-out;
+      }
+
+      button:hover {
+        transform: translateY(-1px);
+        cursor: pointer;
+      }
+
+      button:active {
+        transform: translateY(1px);
+      }
+
+      label {
+        font-size: 2em;
+        font-weight: bold;
+      }
+
+      .controls {
+        padding: 1em;
+      }
+
+      #container {
+        display: flex;
+        font-size: 3em;
+      }
+
+      .box {
+        background: gray;
+        border-radius: 5px;
+        width: 2em;
+        height: 2em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .circle {
+        box-sizing: content-box;
+        background: gray;
+        border-radius: 50%;
+        width: 2em;
+        height: 2em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .red {
+        background: #d63d3d;
+      }
+
+      .blue {
+        background: #0076b4;
+      }
+
+      .green {
+        background: #2b9370;
+      }
+    </style>
   </head>
   <body>
+    <div class="controls">
+      <h2>Emoji creator</h2>
+      <input type="checkbox" id="circle-check" name="circle" />
+      <label for="circle">Circle</label>
+      <div>
+        <button id="create-red" class="red">Red</button>
+        <button id="create-green" class="green">Green</button>
+        <button id="create-blue" class="blue">Blue</button>
+      </div>
+    </div>
+
+    <div id="container">
+      <div class="box red">🍔</div>
+      <div class="circle blue">🍕</div>
+      <div class="box green">🌭</div>
+    </div>
+
     <script>
-      /*
+      const container = document.getElementById("container");
+      const redButton = document.getElementById("create-red");
+      const greenButton = document.getElementById("create-green");
+      const blueButton = document.getElementById("create-blue");
+      const circleCheckbox = document.getElementById("circle-check");
 
-Variabler
-Kontrollsatser
-Strängar
+      redButton.addEventListener("click", createRed);
+      greenButton.addEventListener("click", createGreen);
+      blueButton.addEventListener("click", createBlue);
 
-if blue
-if 3
+      function createRed() {
+        createEmoji("red", circleCheckbox.checked);
+      }
+      function createGreen() {
+        createEmoji("green", circleCheckbox.checked);
+      }
+      function createBlue() {
+        createEmoji("blue", circleCheckbox.checked);
+      }
 
-Tre knappar
-Alla kör en funktion men med olika parametrar?
+      function getRandomNumber() {
+        // return a random number between 0 and 2 (including 0 and 2)
+        return Math.floor(Math.random() * (2 + 1));
+      }
 
-Använd en switch för ytterligare en ifsats?
+      // ARBETA I DENNA FUNKTIONEN
+      function createEmoji(color, isCircle) {
+        // Skapar ett slumpmässigt tal mellan 0 och 2 (inklusive 0 och 2)
+        let randomEmojiNumber = getRandomNumber();
 
-Create blue
-Create box
-Create circle
+        let emoji = "🍔";
+        let shape = "box";
 
-*/
+        // använd det slumpade talet för att sätta vilken emoji som ska skapas
+        /*
+          Om slumpade talet är 0, sätt emoji till 🍔
+          Om slumpade talet är 1, sätt emoji till 🍕
+          Om slumpade talet är 2, sätt emoji till 🌭
+        */
 
-      function createBox() {}
+        // om isCircle, sätt shape till circle, annars till box
 
-      function createCircle() {}
+        createEmojiElement(color, shape, emoji);
+      }
+
+      // Denna funktionen skapar ett element och lägger till den till container-diven.
+      function createEmojiElement(color, shape, emoji) {
+        const newEmojiElement = document.createElement("div");
+        newEmojiElement.classList.add(shape);
+        newEmojiElement.classList.add(color);
+        newEmojiElement.innerText = emoji;
+        container.appendChild(newEmojiElement);
+      }
     </script>
   </body>
 </html>
