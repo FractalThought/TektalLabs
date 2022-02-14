@@ -17,9 +17,17 @@
         align-items: center;
       }
 
-      h2 {
+      h2,
+      h3 {
         font-size: 3em;
         margin-top: 0;
+        margin-bottom: 0;
+      }
+
+      #text-check {
+        border: 0.25em solid #333;
+        padding: 0.225em;
+        width: 50vw;
       }
 
       button {
@@ -47,7 +55,16 @@
       }
 
       .controls {
+        display: flex;
+        flex-direction: column;
         padding: 1em;
+        gap: 0.5em;
+      }
+
+      #message-container {
+        font-weight: bold;
+        font-size: 2em;
+        color: #9c72f4;
       }
 
       #container {
@@ -92,15 +109,27 @@
   <body>
     <div class="controls">
       <h2>Emoji creator</h2>
-      <input type="checkbox" id="circle-check" name="circle" />
-      <label for="circle">Circle</label>
+      <p>
+        Choose circle or box and then select the color to create. The emoji will
+        be randomly generated.
+      </p>
+      <h3>Controls:</h3>
+      <div>
+        <input type="checkbox" id="circle-check" name="circle" />
+        <label for="circle-check">Create circle instead of box</label>
+      </div>
       <div>
         <button id="create-red" class="red">Red</button>
         <button id="create-green" class="green">Green</button>
         <button id="create-blue" class="blue">Blue</button>
       </div>
+      <label for="text-check">Poetry check (bonus)</label>
+      <textarea id="text-check">
+In the words of the late John F. Kennedy; Pizza, Pizza everywhere. Pizza, Pizza in my mouth.</textarea
+      >
     </div>
 
+    <div id="message-container"></div>
     <div id="container">
       <div class="box red">🍔</div>
       <div class="circle blue">🍕</div>
@@ -108,6 +137,8 @@
     </div>
 
     <script>
+      const textCheck = document.getElementById("text-check");
+      const messageContainer = document.getElementById("message-container");
       const container = document.getElementById("container");
       const redButton = document.getElementById("create-red");
       const greenButton = document.getElementById("create-green");
@@ -133,13 +164,14 @@
         return Math.floor(Math.random() * (2 + 1));
       }
 
-      // ARBETA I DENNA FUNKTIONEN
+      // Arbeta i denna funktionen:
       function createEmoji(color, isCircle) {
         // Skapar ett slumpmässigt tal mellan 0 och 2 (inklusive 0 och 2)
         let randomEmojiNumber = getRandomNumber();
 
         let emoji = "🍔";
         let shape = "box";
+        let message = "message";
 
         // använd det slumpade talet för att sätta vilken emoji som ska skapas
         /*
@@ -148,13 +180,27 @@
           Om slumpade talet är 2, sätt emoji till 🌭
         */
 
-        // om isCircle, sätt shape till circle, annars till box
+        // om isCircle, sätt shape till "circle", annars till "box"
 
-        createEmojiElement(color, shape, emoji);
+        // variabeln message skriver ut ett meddelande om vad för något som skapats.
+        // Meddelandet ska vara på engelska, och ska vara formatterad så här:
+        // Created BLUE CIRCLE with 🍔.
+
+        createEmojiElement(color, shape, emoji, message);
+
+        // Bonus:
+        // Kör funktionen createEmojiElement endast om poetryText innehåller namnet på emojin som skapas (tex skapas en pizza-emoji då måste dikten innehålla ordet "pizza").
+        // Annars, använd funktionen setMessage och skriv ut ett meddelande om att ordet saknas och emojin skapades inte.
+        let poetryText = textCheck.value;
+      }
+
+      function setMessage(message) {
+        messageContainer.innerText = message;
       }
 
       // Denna funktionen skapar ett element och lägger till den till container-diven.
-      function createEmojiElement(color, shape, emoji) {
+      function createEmojiElement(color, shape, emoji, message) {
+        setMessage(message);
         const newEmojiElement = document.createElement("div");
         newEmojiElement.classList.add(shape);
         newEmojiElement.classList.add(color);
