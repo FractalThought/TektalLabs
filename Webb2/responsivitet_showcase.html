@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Responsivitet showcase</title>
+    <style>
+      body {
+        background: #ffbc80;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+      }
+
+      .container {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        flex-wrap: nowrap;
+      }
+
+      .box {
+        background: #f76e11;
+        width: 250px;
+        height: 250px;
+      }
+
+      .box--dark {
+        background: #362222;
+      }
+
+      @media (max-width: 1015px) {
+        .container {
+          flex-wrap: wrap;
+        }
+
+        .box--dark {
+          background: green;
+        }
+      }
+
+      @media (max-width: 765px) {
+        .container {
+          justify-content: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header></header>
+    <main>
+      <div class="container">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box box--dark">3</div>
+        <div class="box">4</div>
+        <div class="box">5</div>
+        <div class="box">6</div>
+      </div>
+    </main>
+    <footer></footer>
+  </body>
+</html>
