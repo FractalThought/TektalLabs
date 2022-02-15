@@ -25,11 +25,18 @@
       </div>
     </main>
     <script>
-      class Item {
-        Init() {}
+      const container = document.getElementById("container");
 
-        Render() {}
+      class Item {
+        constructor(name, price) {
+          this.name = name;
+          this.price = price;
+        }
+
+        getInfo() {}
       }
+
+      class ClothingItem extends Item {}
 
       /*
 
@@ -41,9 +48,12 @@ Hur kommer arv och oop in?
 Olika typer av artiklar, som förändrar mer än bara attributen
 
 
-
-
 */
+
+      function createElement() {
+        const newElement = document.createElement("div");
+        container.appendChild(newElement);
+      }
     </script>
   </body>
 </html>
