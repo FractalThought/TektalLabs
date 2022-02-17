@@ -54,6 +54,20 @@ Olika typer av artiklar, som förändrar mer än bara attributen
         const newElement = document.createElement("div");
         container.appendChild(newElement);
       }
+
+      function createItemElement(item) {
+        const newElement = document.createElement("div");
+        const markup = `
+ <div class="person">
+    <h2>
+        ${person.name}
+    </h2>
+    <p class="location">${person.city}</p>
+    <p class="bio">${person.bio}</p>
+ </div>
+`;
+        newElement.innerHTML = markup;
+      }
     </script>
   </body>
 </html>
