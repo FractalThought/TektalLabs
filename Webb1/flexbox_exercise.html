@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Övning i flexbox</title>
+    <style>
+      body {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 12px;
+        background: #a0a0a0;
+        color: #f2f2f2;
+        padding: 0;
+        margin: 0;
+      }
+
+      p,
+      h1,
+      h2 {
+        padding: 0;
+        margin: 0;
+        font-weight: bold;
+      }
+
+      header {
+        background: #4f4f4f;
+        padding: 20px;
+      }
+
+      header a {
+        color: #f4f4f4;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-size: 18px;
+      }
+
+      header a:hover {
+        color: #ffffff;
+      }
+
+      #logo {
+        font-size: 36px;
+      }
+
+      main {
+        background: #333333;
+        min-height: 80vh;
+      }
+
+      main a,
+      #main-link {
+        color: #eb5757;
+        text-transform: uppercase;
+        font-weight: bold;
+        text-decoration: none;
+      }
+
+      a:hover,
+      #main-link:hover {
+        color: #e81717;
+      }
+
+      #container {
+        background: #4f4f4f;
+        padding: 40px;
+      }
+
+      .product {
+        width: 270px;
+        height: 285px;
+        padding: 20px;
+        border: 2px solid #f2f2f2;
+      }
+
+      .product__info > h2 {
+        text-transform: uppercase;
+      }
+
+      footer {
+        background: #4f4f4f;
+        padding: 20px;
+      }
+
+      footer > p {
+        font-weight: normal;
+        font-style: italic;
+      }
+    </style>
+
+    <style>
+      /*
+        
+        TODO:
+        Fixa layouten med flexbox.
+
+        */
+
+      header {
+      }
+
+      nav {
+      }
+
+      #main-link {
+      }
+
+      main {
+      }
+
+      #container {
+      }
+
+      #product-container {
+      }
+
+      .product {
+      }
+
+      .product__info {
+      }
+
+      footer {
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a href="#" id="logo">EFFINITY</a>
+      <nav>
+        <a href="#">Company</a><a id="main-link" href="#">Products</a
+        ><a href="#">Learn</a>
+      </nav>
+    </header>
+    <main>
+      <div id="container">
+        <h1>PRODUCTS</h1>
+        <p>An application for every need</p>
+        <div id="product-container">
+          <div class="product">
+            <div class="product__info">
+              <img
+                height="50"
+                width="50"
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAzCAYAAADVY1sUAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAJ+SURBVHgB7ZntcRoxEIZfPn7yETqghJSAKwktpII4FTipIKQDpwIrFdipwNcBBPgLZDdzusEJdydpX9nnGT8zGjyMjPRod3VCABlZr9fz7Xb7uNvtPuG14iWknbTllukhAyoxGAzu5M/5k8F6vevxePwZGaCL1ElUA2aSoYq0SVSDZpChiYRKVAOTZSgiIvFOJO4RKFENTpTpw4hKDIfD4Eicczqdrlm7mSkiXkIm9B4GGJFJFmFJVBMxyiSLSErcsyQ88nkfp9PpFySQVCPypP7GllAkKjf7/f4DEoiOiErIyxIZ6ff7y9Fo9D3qf2I6SzrdILOEcjweV7GRCY6IbpO6XeL52BwOh6vZbPYQ0jlI5AUkPMEyrSIvKOEJkmkU6YCEpyhliroOtSIdkvA0ylwU0R1Ddw50j1qZ4aXeIrGQlxXamUtbwM5G2m1IRzllL3BhbtZDo34HeYQdN5lMrmDAdIxvKr4YpBZ/w4j5+4hQwI6DEbOIrOZPGJGaDHp6N8GIiHkSjM8wi1hXUyJaSK1tYKQLEfkFAmaRcjULpONAgBERU8EzCl2hiMCQXhJRBwIUEVnVoOPFBRxIUETKJ3z0ziMpSSl0hZVaOqkfiMQQyf+giSChTlj1odBEElbXgQhNpKyTIrR/Sio2wUytqMlJBB2IUEVC06s8X1EehB6qSFm8rduw3PE6kKGKKCHpJRcIUfe6IdBF2m5fyrRyIEMXaUuvHGml0EUUWfXa1JG0+ooMZBGp271E8IG9W3myiJTp5f59X9IqSzSULCIlTyatRS6XcCtkIpuITPpWJ3/2Fn3LPSdnRDSV/v7crEIdvRQPR348vZO2xBth/AErK1w49DNKUgAAAABJRU5ErkJggg=="
+                alt="Publisher"
+              />
+              <h2>Publisher</h2>
+              <p>
+                Best in class for creating concept art, print projects, logos,
+                icons, UI designs, mock-ups and more, our powerful design app is
+                already the choice of thousands of professional illustrators.
+              </p>
+            </div>
+            <a href="https://flexbox.help/">Explore</a>
+          </div>
+          <div class="product">
+            <div class="product__info">
+              <img
+                height="50"
+                width="50"
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAzCAYAAADVY1sUAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAJfSURBVHgB7ZnPUfMwEMWfnRxyyCROB/4qIFTwORUAFRAqACpgqACoAOgAKsBUAHTgDuL8OeSShLfGZjgxiXYhMaPfRZHGlvW0q9VKATwej6dOBDBgMpk8sUjgRtrpdAZQEkLJdDpN4C5CSEajUQIlaiGr1eoCShqNhroPlRADa1SordJc90F+KGq1WpH8XiwWES0RLZfLqyAwWWaFVTgxH4NqNjMp5/N53uv18nXeD6pB8uVTDq7PajFIKYsHguDz9zbhmDIpOZ7sS9sjJ/OBYrOAImLOhkSdGPUko4cMAobOW1aGqDepCBlhB1xHSS5Rq+4ihEi9j+wKa4ffTWA0yRldXlm+sZqVzRHb9tiWlJHQFFMhIoDFDUPi9Xfxn+tyKBkBBcUwQhb7CjY8MAyerLuBCePx+JpiTmGAyRrh7F4ygz3aRITQ7XbP5F0YYGGRO4o4gQILy6iESNrA9TCQFAFKKOaFYvpwROVa/PClhQiBE3IOBRqL5HSpHgzRZBnOFqFbPcMY9nkPRzSu9QpjZBOFI85Cvp4LrND0+WdyLc0aMc+XNH1qXGsPxpRHbSc0rnUIYzg5/+GIRkhkcbFWIXcHUFwtqRa7xcWaVV/aqJXwLkotZjabScI4hAKT80gYhsN2u+20K9Ol+rTGC5SY7CNM+O5cLENLHJd3amosT4hCWp4Ss+8eooC+XLfC5t64wFpIRSpJJV0uZUgtTo0ceMy2mPUDGAqo+Ckhv47PtXYNEZKi/qTyt0JiFQK3BSPlfshQKSHzHz4izUb3UtukHKuMfZ8azE+rHo/H87O8A0NLJEqyqeCcAAAAAElFTkSuQmCC"
+                alt="Photo"
+              />
+              <h2>Photo</h2>
+              <p>
+                Best in class for creating concept art, print projects, logos,
+                icons, UI designs, mock-ups and more, our powerful design app is
+                already the choice of thousands of professional illustrators.
+              </p>
+            </div>
+            <a
+              href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox"
+              >Explore</a
+            >
+          </div>
+          <div class="product">
+            <div class="product__info">
+              <img
+                height="50"
+                width="50"
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAzCAYAAADVY1sUAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAOhSURBVHgB7Zq7ctpAFIZXQIELQLyB3iC4S4mfANyls9yli/0ENmWq5A2Cn8DQpYN06UybynKXVIhLwQy3/D9eMbIsjBaklTKTf0azaLUS59M5e5ch/gENh0MTiZnP5x+Qujj6y+WyVa1WHa9MTmRchCgUCjfylEAWDhtQPVyreeUyDSIheuv12hbSE77LFj2EMnWeGCKj8kFs3jrS1mq16tAT4tkznlyE2WkmQYIQUjT4DGkNMN8Ct/QzCTIej++RNEMuORLGzOVy94ZhWDLfzYuMCRB82x92XCZAE8cvhFkLIE84isj/mSmPSAg7YvE2IO4Qgs5sNsuORxQhKNYfG6E2Mk3zeyY8cgDERmzJKpXKLX+nDhIHBJUqSFwQVGo9+2Qy4bDDFooKg6BS8QghYNCtUNQuCEo7yBEQd4Cwd13XCpIUBKUNJEkISgtI0hBU4iA6IKhEQXRBUImB6ISgEgE5AmIAiFNxgGLv2Y+BwBzjTByoWD1yLASWd1xxoGIDSROCigUkbQjqaJDpdPoJxnwViooTgjoKBBAXMKYtFBU3BHUwCCBqMOZB8TZCOBLCETHqoOYXM7vmfD43Ve9LCoJSBmE4IeEUdcBeOOp9SUJQSiC+OsEl/i8cSkSBSRqCKkQtGFKxbYSYKJfL9mg0crBYdhN2nw4IKnJlh9GP4nlv4oW8FgjLmFdBGF0QlEpoOWGZML4GiB69xcUBL18nxMaOfQWwxG9hffVisVh05dbXLnkr5RbA2DR3dEFQe0G8JX684WsY54bsTQTVBtB1nJ1dFL25iC0X0T7yN0LoPWA+I/2Dox5WXobTJSB+C83a6RGGFN7+YyDb2zWypGe2naLuOhFUaGXn1pfcqwtqs0WMOmBx3w7nHWamDUGFeiTi4jIr97mQrZnuOhHUqw6RISUiLC7DCz+QOGkDeArr2V2Gim+j8ZXYgmF4ojwHSVJhdcRkvBMmeIF5rBtZg6BeeES2VOz0Omyd2GP7PNMH4LkXSmwQisXiptU6OTlxRMraVnYJwZbK4jnefheGXwHGxqmLdIC0gby6hAvORxwcLNPFQLItNGsDEgLhMrwwNKGxDfktiMpEysHR0glk+CEIgLfNCVMXaQN59X0PkA1DH+nT9qGG8Y6fX/BZCNFLHS2bwT4Df0rPEKKC3/U9LdYWliPet4zEs20kDR0w9Eidn0XIt2ghz8Rv/9CDBtB4fuzFvqOjYpQcPVulUqkv/mu//gJAw8l4YUE/lwAAAABJRU5ErkJggg=="
+                alt="Designer"
+              />
+              <h2>Designer</h2>
+              <p>
+                Best in class for creating concept art, print projects, logos,
+                icons, UI designs, mock-ups and more, our powerful design app is
+                already the choice of thousands of professional illustrators.
+              </p>
+            </div>
+            <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/"
+              >Explore</a
+            >
+          </div>
+        </div>
+        <p>
+          Need the whole Suit?
+          <a href="EffinityDesign.png">Check here for a special offer!</a>
+        </p>
+      </div>
+    </main>
+    <footer><p>Copyright © Effinity 2022</p></footer>
+  </body>
+</html>
