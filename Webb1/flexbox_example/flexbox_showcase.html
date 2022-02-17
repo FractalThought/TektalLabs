@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Flexbox Showcase</title>
+    <style>
+      body {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        width: 960px;
+        margin: 0 auto;
+        font-size: 16px;
+        padding: 20px;
+      }
+
+      header {
+        margin-bottom: 20px;
+      }
+
+      header a {
+        font-weight: normal;
+        font-size: 24px;
+      }
+
+      a {
+        text-decoration: none;
+        color: #292929;
+        font-weight: bold;
+      }
+
+      h1,
+      p {
+        margin: 0;
+      }
+
+      aside {
+        border: 2px solid #adadad;
+        padding: 10px;
+        border-radius: 5px;
+      }
+    </style>
+
+    <style>
+      /*
+
+Att visa:
+- Stila a för att visa användning i mikronivå
+- container för makronivå
+- selection för wrap
+- select > a för direction
+- .classic för ordning
+- gap
+- row-reverse
+
+*/
+
+      /* header {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+      } */
+
+      /* header > nav {
+        display: flex;
+        gap: 5px;
+      } */
+
+      /* a {
+        display: flex;
+        align-items: center;
+      } */
+
+      /* a > span {
+        order: -1;
+      } */
+
+      /* #container {
+        display: flex;
+        gap: 20px;
+      } */
+
+      /* #selection {
+        display: flex;
+        flex-wrap: wrap;
+      } */
+
+      #selection > a {
+        /* flex-direction: column; */
+        /* width: 178px; */
+      }
+
+      /* .classic {
+        order: -1;
+      } */
+    </style>
+  </head>
+  <body>
+    <header>
+      <a href="#">McDonken</a>
+      <nav>
+        <a href="#">Vår meny</a><a href="#">Just Nu</a><a href="#">Om vår mat</a
+        ><a href="#">För familjen</a><a href="#">Hitta restaurang</a>
+      </nav>
+    </header>
+    <div id="container">
+      <aside>
+        <a href="#">
+          <img
+            src="img/menu_burgare.jpg"
+            alt="Hamburgare"
+            width="80"
+            height="80"
+          /><span>Hamburgare</span></a
+        >
+        <a href="#">
+          <img
+            src="img/menu_kycklingfisk.jpg"
+            alt="Kyckling & Fisk"
+            width="80"
+            height="80"
+          /><span>Kyckling & Fisk</span></a
+        >
+        <a href="#">
+          <img
+            src="img/menu_vegetariskt2.jpg"
+            alt="Vegetariskt"
+            width="80"
+            height="80"
+          /><span>Vegetariskt</span></a
+        >
+        <a href="#">
+          <img
+            src="img/menu_sallad2.jpg"
+            alt="Sallad"
+            width="80"
+            height="80"
+          /><span>Sallad</span></a
+        >
+        <a href="#">
+          <img
+            src="img/menu_tillbehorsnacks.jpg"
+            alt="Tillbehör & snacks"
+            width="80"
+            height="80"
+          /><span>Tillbehör & snacks</span></a
+        >
+        <a href="#">
+          <img
+            src="img/menu_desserter.jpg"
+            alt="Desserter"
+            width="80"
+            height="80"
+          /><span>Desserter</span></a
+        >
+        <a href="#">
+          <img
+            src="img/menu_happymeal.jpg"
+            alt="Happy Meal"
+            width="80"
+            height="80"
+          /><span>Happy Meal</span></a
+        >
+      </aside>
+      <main>
+        <h1>Hamburgare</h1>
+        <p>
+          Oavsett om du väljer Hamburgare, Cheeseburgare eller klassikern Big
+          Mac får du alltid 100 % rent nötkött med maximal köttsmak, perfekt
+          kryddat för bästa upplevelse. Ät och njut av våra goda saftiga
+          hamburgare!
+        </p>
+        <div id="selection">
+          <a href="#">
+            <img
+              src="img/elmaco-thickerbeef.jpg"
+              alt="El Maco"
+              width="178"
+              height="178"
+            /><span>El Maco</span></a
+          >
+          <a href="#">
+            <img
+              src="img/bigmacbacon.jpg"
+              alt="Big Mac Bacon"
+              width="178"
+              height="178"
+            /><span>Big Mac Bacon</span></a
+          >
+          <a href="#">
+            <img
+              src="img/tasty-thickerbeef.jpg"
+              alt="Big Tasty"
+              width="178"
+              height="178"
+            /><span>Big Tasty</span></a
+          >
+          <a href="#">
+            <img
+              src="img/tastybacon-thickerbeef.jpg"
+              alt="Big Tasty Bacon"
+              width="178"
+              height="178"
+            /><span>Big Tasty Bacon</span></a
+          >
+          <a href="#">
+            <img
+              src="img/clubhouse.jpg"
+              alt="Bacon Clubhouse"
+              width="178"
+              height="178"
+            /><span>Bacon Clubhouse</span></a
+          >
+          <a href="#">
+            <img
+              src="img/baconclubhouse-big.jpg"
+              alt="Big Bacon Clubhouse"
+              width="178"
+              height="178"
+            /><span>Big Bacon Clubhouse</span></a
+          >
+          <a href="#" class="classic">
+            <img
+              src="img/bigmac.jpg"
+              alt="Big Mac"
+              width="178"
+              height="178"
+            /><span>Big Mac</span></a
+          >
+          <a href="#">
+            <img
+              src="img/triplecheese.jpg"
+              alt="Trippel Cheeseburger"
+              width="178"
+              height="178"
+            /><span>Trippel Cheeseburger</span></a
+          >
+          <a href="#">
+            <img
+              src="img/tastycheese.jpg"
+              alt="Tasty Cheese"
+              width="178"
+              height="178"
+            /><span>Tasty Cheese</span></a
+          >
+          <a href="#" class="classic">
+            <img
+              src="img/cheeseburger.jpg"
+              alt="Cheeseburgare"
+              width="178"
+              height="178"
+            /><span>Cheeseburgare</span></a
+          >
+          <a href="#">
+            <img
+              src="img/cheeseburger-glutenfree.jpg"
+              alt="Cheeseburgare med glutenfritt bröd"
+              width="178"
+              height="178"
+            /><span>Cheeseburgare med glutenfritt bröd</span></a
+          >
+          <a href="#">
+            <img
+              src="img/cheeseburger-double.jpg"
+              alt="Dubbel cheeseburgare"
+              width="178"
+              height="178"
+            /><span>Dubbel cheeseburgare</span></a
+          >
+          <a href="#" class="classic">
+            <img
+              src="img/qpcheese.jpg"
+              alt="QP Cheese"
+              width="178"
+              height="178"
+            /><span>QP Cheese</span></a
+          >
+          <a href="#" class="classic">
+            <img
+              src="img/hamburger.jpg"
+              alt="Hamburgare"
+              width="178"
+              height="178"
+            /><span>Hamburgare</span></a
+          >
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
