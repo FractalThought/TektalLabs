@@ -104,10 +104,9 @@
       clearButton.addEventListener("click", clear);
 
       function createRect() {
-        let x = 0;
-        addRect(x, 10, 50, 50);
-        x = x + 50;
-        addRect(x, 10, 50, 50);
+        for (let x = 0; x < 50; x += 10) {
+          addRect(x, 10, 5, 5);
+        }
       }
 
       function clear() {
