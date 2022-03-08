@@ -37,26 +37,58 @@
     </style>
   </head>
   <body>
+    <div id="container"></div>
+    <p>Hejsan</p>
+    <p>Hejsan</p>
+    <p>Hejsan</p>
+    <p>Hejsan</p>
+    <p class="special">Specialaren</p>
+
+    <script></script>
+
     <script>
+      let person = {
+        name: "Felix",
+        age: 31,
+        occupation: "teacher",
+        birthyear: 1988,
+        footballteam: "Endre",
+        kids: ["Oliver", "Erik"],
+        car: { make: "ford", model: "focus" },
+      };
+
+      let persons = [person, { name: "Anna", age: 32, occupation: "teacher" }];
+
+      delete person.name;
+      person.age = 32;
+      person.occupation = "student";
+
+      console.log(persons);
+
+      let name = "Felix";
+      let names = [name, "Anna"];
+      name = "Oliver";
+      console.log(names);
+
       /*
 
-let programming = {
-    languages: ["JavaScript", "Python"],
-    isChallenging: true,
-    isRewarding: true,
-    difficulty: 8,
-    jokes: "http://stackoverflow.com/questions/234075/what-is-your-best-programmer-joke"
-};
+      let programming = {
+          languages: ["JavaScript", "Python"],
+          isChallenging: true,
+          isRewarding: true,
+          difficulty: 8,
+          jokes: "http://stackoverflow.com/questions/234075/what-is-your-best-programmer-joke"
+      };
 
-1. Skriv kommandot för att lägga till språket "C#" till slutet av languages-arrayen.
-2. Ändra difficulty till värdet 7.
-3. Använd delete-nyckelordet och skriv kommandot för att ta bort jokes från programming-objektet.
-4. Skriv kommandot för att lägga till en ny nyckel till programmering-objektet kallad isFun, och sätt dess värde till true.
-5. Använd en loop och iterera igenom languages-arrayen och skriv ut alla språk i konsolen.
-6. Använd en loop för att skriva ut alla nycklar i programmering-objektet.
-7. Använd en loop för att skriva ut alla värden i programmering-objektet.
+      1. Skriv kommandot för att lägga till språket "C#" till slutet av languages-arrayen.
+      2. Ändra difficulty till värdet 7.
+      3. Använd delete-nyckelordet och skriv kommandot för att ta bort jokes från programming-objektet.
+      4. Skriv kommandot för att lägga till en ny nyckel till programmering-objektet kallad isFun, och sätt dess värde till true.
+      5. Använd en loop och iterera igenom languages-arrayen och skriv ut alla språk i konsolen.
+      6. Använd en loop för att skriva ut alla nycklar i programmering-objektet.
+      7. Använd en loop för att skriva ut alla värden i programmering-objektet.
 
-*/
+      */
     </script>
   </body>
 </html>
