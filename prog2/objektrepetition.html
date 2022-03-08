@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Data</title>
+    <style>
+      body {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        margin: 0 auto;
+        width: 50vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      h2,
+      h3 {
+        font-size: 3em;
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+
+      .red {
+        background: #d63d3d;
+      }
+
+      .blue {
+        background: #0076b4;
+      }
+
+      .green {
+        background: #2b9370;
+      }
+
+      .bigtext {
+        font-size: 32px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Characters in the Mighty Nein</h1>
+    <div id="characters"></div>
+
+    <script>
+      /*
+        Uppgift 1:
+
+        1. Skapa två objekt som har samma typer av attribut, men olika värden.
+        Dina objekt ska ha attributen;
+        name, class, level, race, magical
+
+        Första objektet ska ha värdena;
+        "Caleb", "Wizard", 10, "Human", true
+
+        Andra objektet ska ha värdena;
+        "Nott", "Rogue", 10, "Goblin", false
+
+        2. Använd objektens värden för att skriva ut en beskrivning av karaktären som ser ut så här;
+        "Name is a level ## Race Class."
+        (se variabeln jesterDescription för exempel på hur beskrivningen ska se ut)
+
+        Använd funktionen addCharacter för att skriva ut beskrivningen på hemsidan. Skicka med karaktärbeskrivningen du skapade.
+        Gör detta för både första och andra objektet.
+
+      */
+
+      /*
+        
+        Uppgift 2:
+
+        Använd nedanstående beskrivning (variabeln jesterDescription) för att skapa ett tredje objekt med samma typer av attribut som dina andra två objekt.
+        Värdena hämtar du från jesterDescription med hjälp av strängmetoder.
+
+      */
+
+      let jesterDescription = "Jester is a level 10 Thiefling Cleric.";
+
+      function addCharacter(characterInfo) {
+        const characterContainer = document.getElementById("characters");
+        const newCharacter = document.createElement("p");
+        newCharacter.innerText = characterInfo;
+        characterContainer.appendChild(newCharacter);
+      }
+    </script>
+  </body>
+</html>
