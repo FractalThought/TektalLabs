@@ -34,17 +34,45 @@
       .green {
         background: #2b9370;
       }
+
+      .bigtext {
+        font-size: 32px;
+      }
     </style>
   </head>
   <body>
     <div id="container"></div>
+    <h1>Välkommen</h1>
     <p>Hejsan</p>
-    <p>Hejsan</p>
+    <p class="bigtext">Hejsan</p>
     <p>Hejsan</p>
     <p>Hejsan</p>
     <p class="special">Specialaren</p>
 
-    <script></script>
+    <script>
+      let paragraphs = document.getElementsByTagName("p");
+      for (let i = 0; i < paragraphs.length; i++) {
+        paragraphs[i].innerText = "Hello";
+        paragraphs[i].classList.add("blue");
+        paragraphs[i].classList.toggle("bigtext");
+      }
+
+      let special = document.querySelectorAll(".special");
+      special[0].innerText = "Special special";
+      special[0].remove();
+
+      let container = document.querySelector("#container");
+      container.innerHTML = "<p>WELCOME</p><style>p {color: green;}</style>";
+
+      let newParagraph = document.createElement("p"); // Det nya elementet vi skapar
+      newParagraph.innerText = "Detta är min nya paragraf!";
+      container.appendChild(newParagraph);
+
+      let body = document.getElementsByTagName("body")[0];
+      body.innerHTML = "";
+
+      console.log(container);
+    </script>
 
     <script>
       let person = {

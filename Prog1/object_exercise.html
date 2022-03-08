@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Character creator</title>
+    <style>
+      body {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        margin: 0 auto;
+        width: 50vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      h2,
+      h3 {
+        font-size: 3em;
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+
+      .name {
+        font-weight: bold;
+      }
+
+      .race {
+        font-style: italic;
+      }
+
+      .red-power {
+        background: #d63d3d;
+      }
+      .blue-power {
+        background: #0076b4;
+      }
+      .green-power {
+        background: #2b9370;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container"></div>
+    <a href="https://tektal.netlify.app/prog1/webben/dom-manipulering"
+      >DOM-manipulering</a
+    >
+    <a href="https://tektal.netlify.app/prog1/objekt/intro">Objekt</a>
+
+    <script>
+      /*
+        Första övningen:
+
+        1. Skapa ett objekt för en karaktär. Karaktären ska ha följande attribut:
+        name (string)
+        level (number)
+        race (string)
+        powers (en array av objekt)
+
+        Powers ska vara en array med objekt där varje power har attributen type och name.
+        Type ska vara antingen green, red, eller blue.
+
+        2. Använd karaktärens attribut för att skapa HTML-element.
+        Du kan använda lämpliga taggar (h1, p, ul&li).
+
+        3. Dessa element ska sedan läggas in i container-diven.
+      */
+
+      let container = document.getElementById("container"); // I denna ska alla element läggas
+    </script>
+
+    <script>
+      // Andra övningen:
+
+      let programming = {
+        languages: ["JavaScript", "Python"],
+        isChallenging: true,
+        isRewarding: true,
+        difficulty: 8,
+        jokes:
+          "http://stackoverflow.com/questions/234075/what-is-your-best-programmer-joke",
+      };
+
+      /*
+      Använd ovanstående objekt och utför följande instruktioner:
+      (vissa saker kan du behöva googla på hur man gör)
+
+      1. Lägg till språket "C#" till slutet av languages-arrayen.
+      2. Ändra difficulty till värdet 7.
+      3. Använd delete-nyckelordet och skriv kommandot för att ta bort jokes från programming-objektet.
+      4. Lägg till en ny nyckel till programmering-objektet kallad isFun, och sätt dess värde till true.
+      5. Använd en loop och iterera igenom languages-arrayen och skriv ut alla språk i konsolen.
+      6. Använd en loop för att skriva ut alla nycklar i programmering-objektet.
+      7. Använd en loop för att skriva ut alla värden i programmering-objektet.
+
+      */
+    </script>
+  </body>
+</html>
