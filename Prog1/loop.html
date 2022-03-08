@@ -104,9 +104,35 @@
       clearButton.addEventListener("click", clear);
 
       function createRect() {
-        for (let x = 0; x < 50; x += 10) {
-          addRect(x, 10, 5, 5);
+        let color1 = "red";
+        let color2 = "blue";
+        let color3 = "red";
+
+        let xPositions = [10, 30, 60, 45, 9, 12];
+        let colors = [color1, "blue", "magenta", "green"];
+        colors.push("yellow");
+        colors.push(color3);
+
+        for (let i = 0; i < colors.length; i++) {
+          addRect(50 * i, 50 * i, 40, 40, colors[i]);
         }
+
+        // for (let x = 0; x < 50; x++) {
+        //   for (let y = x; y < 50; y++) {
+        //     if (x % 2 == 0 || y % 2 == 0) {
+        //       addRect(x * 50, y * 50, 40, 40, "red");
+        //     } else {
+        //       addRect(x * 50, y * 50, 40, 40, "purple");
+        //     }
+        //   }
+
+        //   // addRect(x, x, 50, 50);
+        //   // addRect(x, x + 50, 50, 50);
+        //   // addRect(x, x - 50, 50, 50);
+        //   // addRect(x, -x, 50, 50);
+        //   // addRect(x + 50, -x, 50, 50);
+        //   // addRect(x - 50, -x, 50, 50);
+        // }
       }
 
       function clear() {
