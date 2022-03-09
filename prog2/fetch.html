@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Data</title>
+    <style>
+      body {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        margin: 0 auto;
+        width: 50vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      h2,
+      h3 {
+        font-size: 3em;
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+
+      .red {
+        background: #d63d3d;
+      }
+
+      .blue {
+        background: #0076b4;
+      }
+
+      .green {
+        background: #2b9370;
+      }
+
+      .bigtext {
+        font-size: 32px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Weather data</h1>
+    <div id="container"></div>
+
+    <script>
+      /*
+
+fetch("https://handlers.education.launchcode.org/static/weather.json").then( function(response) {
+               // Access the JSON in the response
+               response.json().then( function(json) {
+                  console.log(json);
+               });
+            });
+
+*/
+
+      fetch("data.json").then(function (response) {
+        response.json().then(function (json) {
+          const div = document.getElementById("container");
+          // Add HTML that includes the JSON data
+          div.innerHTML = `
+                     <ul>
+                        <li>Temp ${json.name}</li>
+                        <li>Wind Speed ${json.age}</li>
+                        <li>Status ${json.occupation}</li>
+                     </ul>
+                  `;
+        });
+      });
+
+      const data = [
+        {
+          id: 1,
+          active: false,
+          firstName: "Mae",
+          lastName: "Jemison",
+          skills: ["Physician", "Chemical Engineer"],
+          hoursInSpace: 190,
+          picture: "mae-jemison.jpg",
+        },
+        {
+          id: 2,
+          active: false,
+          firstName: "Frederick",
+          lastName: "Gregory",
+          skills: [
+            "Information Systems",
+            "Shuttle Pilot",
+            "Fighter Pilot",
+            "Helicopter Pilot",
+            "Colonel USAF",
+          ],
+          hoursInSpace: 455,
+          picture: "frederick-gregory.jpg",
+        },
+        {
+          id: 3,
+          active: false,
+          firstName: "Ellen",
+          lastName: "Ochoa",
+          skills: ["Physics", "Electrical Engineer"],
+          hoursInSpace: 979,
+          picture: "ellen-ochoa.jpg",
+        },
+        {
+          id: 4,
+          active: false,
+          firstName: "Guion",
+          lastName: "Bluford",
+          skills: [
+            "Aerospace Engineer",
+            "Philosophy",
+            "Physics",
+            "Colonel USAF",
+            "Fighter Pilot",
+          ],
+          hoursInSpace: 686,
+          picture: "guion-bluford.jpg",
+        },
+        {
+          id: 5,
+          active: false,
+          firstName: "Sally",
+          lastName: "Ride",
+          skills: ["Physicist", "Astrophysics"],
+          hoursInSpace: 343,
+          picture: "sally-ride.jpg",
+        },
+        {
+          id: 6,
+          active: true,
+          firstName: "Kjell",
+          lastName: "Lindgren",
+          skills: ["Physician", "Surgeon", "Emergency Medicine"],
+          hoursInSpace: 15,
+          picture: "kjell-lindgren.jpg",
+        },
+        {
+          id: 7,
+          active: true,
+          firstName: "Jeanette",
+          lastName: "Epps",
+          skills: ["Physicist", "Philosophy", "Aerospace Engineer"],
+          hoursInSpace: 0,
+          picture: "jeanette-epps.jpg",
+        },
+      ];
+    </script>
+  </body>
+</html>
