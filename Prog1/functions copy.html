@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Shape factory</title>
+    <title>Emoji Food Creator</title>
 
     <style>
       body {
@@ -15,6 +15,19 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+      }
+
+      h2,
+      h3 {
+        font-size: 3em;
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+
+      #text-check {
+        border: 0.25em solid #333;
+        padding: 0.225em;
+        width: 50vw;
       }
 
       button {
@@ -36,16 +49,27 @@
         transform: translateY(1px);
       }
 
-      #container {
-        display: flex;
-        flex-wrap: wrap;
+      label {
+        font-size: 2em;
+        font-weight: bold;
       }
 
-      #controls {
+      .controls {
         display: flex;
         flex-direction: column;
         padding: 1em;
         gap: 0.5em;
+      }
+
+      #message-container {
+        font-weight: bold;
+        font-size: 2em;
+        color: #9c72f4;
+      }
+
+      #container {
+        display: flex;
+        font-size: 3em;
       }
 
       .box {
@@ -80,37 +104,39 @@
       .green {
         background: #2b9370;
       }
-
-      #yellow {
-        background: #91932b;
-      }
     </style>
   </head>
   <body>
-    <div id="container">
-      <div class="box"></div>
-      <div class="box red"></div>
-      <div class="box blue"></div>
-      <div class="circle"></div>
-      <div class="circle" id="yellow"></div>
-      <div class="circle red"></div>
-      <div class="circle blue"></div>
-      <div class="box"></div>
-      <div class="box red"></div>
-      <div class="box blue"></div>
+    <div class="controls">
+      <h2>Emoji Food Creator</h2>
+      <p>
+        Choose circle or box and then select the color to create. The emoji will
+        be randomly generated.
+      </p>
+      <h3>Controls:</h3>
+      <div>
+        <input type="checkbox" id="circle-check" name="circle" />
+        <label for="circle-check">Create circle instead of box</label>
+      </div>
+      <div>
+        <button id="create-red" class="red">Red</button>
+        <button id="create-green" class="green">Green</button>
+        <button id="create-blue" class="blue">Blue</button>
+      </div>
+      <label for="text-check">Poetry check (bonus)</label>
+      <textarea id="text-check">
+In the words of the late John F. Kennedy; Pizza, Pizza everywhere. Pizza, Pizza in my mouth.</textarea
+      >
     </div>
 
-    <div id="controls">
-      <button id="create-red" class="red">Red</button>
-      <button id="create-green" class="green">Green</button>
-      <button id="create-blue" class="blue">Blue</button>
+    <div id="message-container"></div>
+    <div id="container">
+      <div class="box red">🍔</div>
+      <div class="circle blue">🍕</div>
+      <div class="box green">🌭</div>
     </div>
 
     <script>
-      let numberOne = 5;
-      let numberTwo = 3;
-      let result = numberOne + numberTwo;
-
       /*
       
       Funktioner och events
