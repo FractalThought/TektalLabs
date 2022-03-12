@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Data</title>
+    <style>
+      body {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        margin: 0 auto;
+        width: 50vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container"></div>
+    <script>
+      const meny = {
+        forratter: [
+          {
+            id: 1,
+            name: "Vegetariska vårrullar 6st",
+            price: 60,
+            description: "Med sweet chilisås",
+            isStrong: true,
+          },
+          {
+            id: 2,
+            name: "Tom Yam Goong",
+            price: 85,
+            description: "Thaisoppa med räkor",
+            isStrong: true,
+          },
+        ],
+      };
+
+      function newAppertiser(name, price, description, isStrong) {
+        const appertiser = {
+          id: meny.forratter.length - 1,
+          name: name,
+          price: price,
+          description: description,
+          isStrong: isStrong,
+        };
+        meny.forratter.push(appertiser);
+      }
+
+      newAppertiser(
+        "Tom Kha Gai",
+        80,
+        "Thai kycklingsoppa med koksmjölk",
+        true
+      );
+
+      parseItemFromSite(
+        "4.Gaeng Kaew Wan Goong 110:- Räkor i grön curry & kokosmjölk"
+      );
+
+      function parseItemFromSite(item) {
+        const searchTerm = ":-";
+        let indexOf = item.indexOf(searchTerm);
+        const price = item.substring(indexOf - 3, indexOf);
+
+        const name = item.substring(2, indexOf - 4);
+        const description = item.substring(indexOf + 3, item.length - 1);
+
+        newAppertiser(name, price, description, true);
+      }
+
+      const container = document.getElementById("container");
+
+      for (let i = 0; i < meny.forratter.length; i++) {
+        meny.forratter[i].price += 10;
+
+        const newItem = document.createElement("div");
+        newItem.innerHTML = `<h2>${meny.forratter[i].name}</h2>
+      <p>${meny.forratter[i].price}</p>
+      <p>${meny.forratter[i].description}</p>`;
+        container.appendChild(newItem);
+      }
+    </script>
+  </body>
+</html>
