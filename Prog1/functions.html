@@ -87,6 +87,7 @@
     </style>
   </head>
   <body>
+    <div>Number of boxes: <span id="count">6</span></div>
     <div id="container">
       <div class="box"></div>
       <div class="box red"></div>
@@ -104,116 +105,66 @@
       <button id="create-red" class="red">Red</button>
       <button id="create-green" class="green">Green</button>
       <button id="create-blue" class="blue">Blue</button>
+      <button id="create-many">Many</button>
     </div>
 
     <script>
-      let numberOne = 5;
-      let numberTwo = 3;
-      let result = numberOne + numberTwo;
+      // Ta bort det man klickar på
+      function removeItem(e) {
+        e.target.remove();
+      }
 
-      /*
-      
-      Funktioner och events
-
-      Click event i första hand
-      Fler events? Vilka?
-
-      Vad ska vi ha som övning?
-
-      Funktion - dela in
-      Visa hur vi kan använda funktioner för att kapsla in kod för återanvändning
-
-      Behöver visa både void och return-funktioner
-
-      Vad som övning/assignment?
-      Maskin
-      Färgskapare
-      Möjlighet att lägga till loop
-      Disco? Ändra färg på saker?
-      Spel?
-
-      New elements, add event listener
-      e.target
-
-      Create multiple with a loop
-      Use object?
-
-      Click to remove?
-      Save in an array?
-      
-      
-      */
-
-      const textCheck = document.getElementById("text-check");
       const messageContainer = document.getElementById("message-container");
       const container = document.getElementById("container");
       const redButton = document.getElementById("create-red");
       const greenButton = document.getElementById("create-green");
       const blueButton = document.getElementById("create-blue");
-      const circleCheckbox = document.getElementById("circle-check");
+      const manyButton = document.getElementById("create-many");
 
       redButton.addEventListener("click", createRed);
-      greenButton.addEventListener("click", createGreen);
-      blueButton.addEventListener("click", createBlue);
 
       function createRed() {
-        createEmoji("red", circleCheckbox.checked);
+        let newRed = document.createElement("div");
+        newRed.classList.add("box");
+        newRed.classList.add("red");
+        container.appendChild(newRed);
       }
-      function createGreen() {
-        createEmoji("green", circleCheckbox.checked);
-      }
-      function createBlue() {
-        createEmoji("blue", circleCheckbox.checked);
-      }
+
+      // Implementera dessa (se createRed)
+      function createGreen() {}
+      function createBlue() {}
+      function createMany() {}
 
       function getRandomNumber() {
         // return a random number between 0 and 2 (including 0 and 2)
         return Math.floor(Math.random() * (2 + 1));
       }
 
-      // Arbeta i denna funktionen:
-      function createEmoji(color, isCircle) {
-        // Skapar ett slumpmässigt tal mellan 0 och 2 (inklusive 0 och 2)
-        let randomEmojiNumber = getRandomNumber();
-
-        let emoji = "🍔";
-        let shape = "box";
-        let message = "message";
-
-        // använd det slumpade talet för att sätta vilken emoji som ska skapas
-        /*
-          Om slumpade talet är 0, sätt emoji till 🍔
-          Om slumpade talet är 1, sätt emoji till 🍕
-          Om slumpade talet är 2, sätt emoji till 🌭
-        */
-
-        // om isCircle, sätt shape till "circle", annars till "box"
-
-        // variabeln message skriver ut ett meddelande om vad för något som skapats.
-        // Meddelandet ska vara på engelska, och ska vara formatterad så här:
-        // Created BLUE CIRCLE with 🍔.
-
-        createEmojiElement(color, shape, emoji, message);
-
-        // Bonus:
-        // Kör funktionen createEmojiElement endast om poetryText innehåller namnet på emojin som skapas (tex skapas en pizza-emoji då måste dikten innehålla ordet "pizza").
-        // Annars, använd funktionen setMessage och skriv ut ett meddelande om att ordet saknas och emojin skapades inte.
-        let poetryText = textCheck.value;
-      }
-
       function setMessage(message) {
         messageContainer.innerText = message;
       }
 
-      // Denna funktionen skapar ett element och lägger till den till container-diven.
-      function createEmojiElement(color, shape, emoji, message) {
-        setMessage(message);
-        const newEmojiElement = document.createElement("div");
-        newEmojiElement.classList.add(shape);
-        newEmojiElement.classList.add(color);
-        newEmojiElement.innerText = emoji;
-        container.appendChild(newEmojiElement);
-      }
+      /*
+
+      Instruktioner:
+      1. Lägg till en event listener med metoden addEventlistener till elementet med IDt "yellow".
+      Eventet ska vara "click" och funktionen ska vara removeItem.
+
+      2. Lägg till samma event till alla boxar (alla element som har klassen "box").
+
+      3. Just nu fungerar bara den röda knappen. Gör så att även gröna och blåa knappen fungerar.
+
+      4. Notera att du inte kan klicka bort nya element som skapas med dina knappar.
+      Uppdatera dina funktioner så att det nya elementet får en event-binding för "click" till removeItem-funktionen.
+
+      5. Lägg till en funktion som uppdaterar siffran som visas efter "Number of boxes".
+      Kalla funktionen i dina create-funktioner så att varje gång du skapar en box så läggs det till 1 till siffran.
+
+      6. Se till att du även kallar din funktion som uppdaterar siffran när du tar bort en box.
+
+      7. Avsluta med att få Many-knappen att fungera. Den ska skapa flera element - det kan vara cirklar eller boxar.
+      Tänk på att endast uppdatera räkningssiffran om du lägger till en box.
+      */
     </script>
   </body>
 </html>
