@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Awesome Tea</title>
+    <style>
+      body {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 18px;
+        padding: 0;
+        margin: 0;
+      }
+
+      h1,
+      h2 {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+
+      a.button {
+        padding: 10px;
+        background: #4ab7aa;
+        text-decoration: none;
+        color: white;
+        border-radius: 10px;
+      }
+
+      header {
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      header,
+      #hero {
+        background: #4ab7aa;
+      }
+
+      nav {
+        display: none;
+      }
+
+      #hero {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding: 20px;
+        gap: 20px;
+        min-height: 30vh;
+      }
+
+      #hero > a.button {
+        background: white;
+        color: #4ab7aa;
+      }
+
+      #selling-points > div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding: 20px;
+      }
+
+      #good-point {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding: 20px;
+      }
+
+      @media (min-width: 700px) {
+        nav {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 10px;
+        }
+
+        nav > a {
+          background: white;
+          color: #4ab7aa;
+          text-decoration: none;
+          padding: 5px;
+          border-radius: 5px;
+        }
+
+        #hero {
+          background: url("hero.png");
+          color: white;
+        }
+
+        #hero > a.button {
+          background: #4ab7aa;
+          color: white;
+        }
+      }
+
+      @media (min-width: 1024px) {
+        header {
+          flex-direction: row;
+          justify-content: space-between;
+        }
+
+        #hero {
+          align-items: flex-start;
+          padding: 60px;
+        }
+
+        #selling-points {
+          display: flex;
+          flex-direction: row;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>My Awesome Tea</h1>
+      <nav><a href="#">Home</a><a href="#">Buy</a><a href="#">About</a></nav>
+    </header>
+    <div id="hero">
+      <h2>Please buy my tea!</h2>
+      <a href="#" class="button">Buy now</a>
+    </div>
+
+    <div id="selling-points">
+      <div>
+        <h2>Tea is good</h2>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a enim
+          sed purus varius pharetra. Morbi sollicitudin ipsum tempor justo
+          placerat iaculis. Quisque porttitor porta ex eget rhoncus.
+        </p>
+      </div>
+      <div>
+        <h2>Tea is good</h2>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a enim
+          sed purus varius pharetra. Morbi sollicitudin ipsum tempor justo
+          placerat iaculis. Quisque porttitor porta ex eget rhoncus.
+        </p>
+      </div>
+      <div>
+        <h2>Tea is good</h2>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a enim
+          sed purus varius pharetra. Morbi sollicitudin ipsum tempor justo
+          placerat iaculis. Quisque porttitor porta ex eget rhoncus.
+        </p>
+      </div>
+    </div>
+
+    <div id="good-point">
+      <h2>Tea is good for you</h2>
+      <p>Unlike Coffee that just makes you sad.</p>
+      <a href="#" class="button">Find out how</a>
+    </div>
+  </body>
+</html>
