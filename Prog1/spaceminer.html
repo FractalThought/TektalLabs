@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Funktioner</title>
+
+    <style>
+      body {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        margin: 0 auto;
+        width: 75vw;
+      }
+
+      #game {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        padding: 20px;
+      }
+
+      button {
+        background: #333333;
+        color: #f2f2f2;
+        border-radius: 5px;
+        border: none;
+        font-size: 2em;
+        padding: 0.25em 0.5em;
+        transition: all 0.2s ease-in-out;
+      }
+
+      button:hover {
+        transform: translateY(-1px);
+        cursor: pointer;
+      }
+
+      button:active {
+        transform: translateY(1px);
+      }
+
+      .worker {
+        background: #777;
+      }
+
+      #info {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+      }
+
+      #worker-container {
+        display: flex;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        gap: 5px;
+      }
+
+      #controls {
+        display: flex;
+        flex-direction: column;
+        padding: 1em;
+        gap: 0.5em;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="instructions">
+      <h1>Space Miner</h1>
+      <h2>Instructions</h2>
+      <p>Clicking any of the buttons furthers the game 1 day.</p>
+      <p>
+        Try to get as much money before the end of the month by mining ore and
+        then selling it when it is worth a lot.
+      </p>
+      <p>
+        Each day, a new yield is decided. Each time you sell ore, its worth is
+        recalculated.
+      </p>
+      <p>
+        Hire workers to increase production, but take note that they also need
+        to be payed.
+      </p>
+    </div>
+    <div id="game">
+      <div id="info">
+        <div>Days passed: <span id="days-passed">0</span></div>
+        <div>Money: <span id="money">10</span></div>
+        <div>Ore: <span id="ore">10</span></div>
+        <div>Current yield: <span id="yield">10</span></div>
+        <div>Ore is worth <span id="ore-worth">10</span> money.</div>
+        <div>Workers: <span id="worker-number">10</span></div>
+        <div>Salary (per worker): <span id="salary">1</span></div>
+      </div>
+      <div id="worker-container">
+        <button class="worker">👷‍♀️</button>
+        <button class="worker">👷‍♂️</button>
+        <button class="worker">👷‍♂️</button>
+      </div>
+
+      <div id="controls">
+        <button id="mine">Mine</button>
+        <button id="sell-one">Sell one ore</button>
+        <button id="sell-ten">Sell ten ore</button>
+        <button id="hire">Hire a worker</button>
+      </div>
+    </div>
+
+    <script>
+      // UI
+      const daysPassedUI = document.getElementById("days-passed");
+      const moneyUI = document.getElementById("money");
+      const oreUI = document.getElementById("ore");
+      const yieldUI = document.getElementById("yield");
+      const oreWorthUI = document.getElementById("ore-worth");
+      const workerNumberUI = document.getElementById("worker-number");
+      const salaryUI = document.getElementById("salary");
+      const workerContainerUI = document.getElementById("worker-container");
+
+      let daysPassed = 0;
+      let money = 20;
+      let ore = 0;
+      let workers = 3;
+      let yield = 2;
+      let oreValue = 3;
+      let salary = 1;
+
+      updateUI(); // Kör updateUI en gång för att sätta alla startvärden korrekt.
+
+      function updateUI() {
+        daysPassedUI.innerText = daysPassed;
+        moneyUI.innerText = money;
+        oreUI.innerText = ore;
+        yieldUI.innerText = yield;
+        oreWorthUI.innerText = oreValue;
+        workerNumberUI.innerText = workers;
+        salaryUI.innerText = salary;
+      }
+
+      // Ta bort det man klickar på
+      function removeItem(e) {
+        e.target.remove();
+      }
+
+      // return a random number between 0 and 10 (including 0 and 10)
+      function getRandomNumber() {
+        return Math.floor(Math.random() * (10 + 1));
+      }
+
+      // En dag passerar (öka daysPassed med 1)
+      // När en dag passerar ändras värdet på ore, och spelaren betalar sina arbetare deras lön
+      function newDay() {
+        daysPassed++;
+        worth = getRandomNumber();
+        money -= salary * workers;
+        updateUI();
+      }
+
+      function mine() {
+        ore += workers * yield;
+        yield = getRandomNumber();
+        newDay();
+      }
+
+      // TODO:
+      // Sell ska minska ore med 1 och öka money med 1 * oreValue
+      // Dessutom ska oreValue sättas till getRandomNumber()
+      function sellOne() {
+        newDay();
+      }
+
+      // TODO:
+      // sellTen ska sälja 10 ore för oreValue
+      // Dessutom ska oreValue sättas till getRandomNumber()
+      function sellTen() {
+        newDay();
+      }
+
+      // TODO:
+      // Funktionen ska, innan newDay(), lägga till en worker till gränssnittet med funktionen addWorker
+      // addWorker tar ett argument, gender. Använd funktionen getRandomNumber för att bestämma om den nya workern är 👷‍♀️ eller 👷‍♂️.
+      // Du kan självklart ändra dessa till något annat, till exempel 🧔🦹‍♂️👽🤖.
+      function hireWorker() {
+        workers++;
+        // addWorker("gender");
+        newDay();
+      }
+
+      function fireWorker(e) {
+        workers--;
+        removeItem(e);
+        newDay();
+      }
+
+      const container = document.getElementById("workers");
+      function addWorker(gender) {
+        let newWorker = document.createElement("button");
+        newWorker.innerText = gender;
+        newWorker.classList.add("worker");
+        workerContainerUI.appendChild(newWorker);
+      }
+
+      // Controls
+      const mineButton = document.getElementById("mine");
+      const sellOneButton = document.getElementById("sell-one");
+      const sellTenButton = document.getElementById("sell-ten");
+      const hireButton = document.getElementById("hire");
+      const startingWorkers = document.getElementsByClassName("worker");
+
+      mineButton.addEventListener("click", mine);
+
+      /*
+
+      Todo:
+      - Bind sellOneButton till funktionen sellOne
+      - Bind sellTenButton till funktionen sellTen
+      - Bind hireButton till funktionen hireWorker
+
+      - Bind existerande workers (startingWorkers) till funktionen fireWorker
+      - Bind alla nya workers till funktionen fireWorker
+
+      - Implementera alla funktioner. Instruktionerna för hur funktionen ska fungera står ovanför varje funktion.
+
+      */
+
+      /*
+      
+      Extra saker att göra:
+      - Få salary att öka med 1 vissa dagar (använd getRandomNumber eller skapa din egen slumpgenerator för att bestämma om salary ökar eller inte)
+      - Skicka en alert (alert("Meddelande")) och resetta spelet om spelaren förlorar (får 0 eller minus i money efter en ny dag)
+      - Skicka en alert om spelaren försöker sälja ore den inte har (och gör att spelaren inte kan göra detta)
+      - Skicka en alert och resetta spelet när spelaren nått 30 dagar. Då ska spelarens slutpoäng räknas ihop och meddelas via alert().
+      Slutpoängen är förslagsvis (ore*oreWorth)+money
+
+
+      */
+    </script>
+  </body>
+</html>
