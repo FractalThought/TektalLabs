@@ -8,6 +8,7 @@
   </head>
   <body>
     <input type="file" id="input" />
+    <button id="download-button">Ladda ner</button>
 
     <script>
       const input = document.querySelector('input[type="file"]');
@@ -22,6 +23,7 @@
           const img = new Image();
           img.onload = function () {
             const canvas = document.createElement("canvas");
+            canvas.id = "canvas";
             const context = canvas.getContext("2d");
             context.drawImage(img, 0, 0);
 
@@ -52,7 +54,6 @@
             });
           };
           img.src = reader.result;
-          //document.body.appendChild(img)
         };
         //reader.readAsText(files[0])
         reader.readAsDataURL(files[0]);
@@ -66,23 +67,46 @@
         false
       );
 
-      document.addEventListener(
-        "dragover",
-        function (e) {
-          e.preventDefault();
-          e.stopPropagation();
-        },
-        false
-      );
-      document.addEventListener(
-        "drop",
-        function (e) {
-          e.preventDefault();
-          e.stopPropagation();
-          handleFiles(e.dataTransfer.files);
-        },
-        false
-      );
+      // Drag and drop
+      // document.addEventListener(
+      //   "dragover",
+      //   function (e) {
+      //     e.preventDefault();
+      //     e.stopPropagation();
+      //   },
+      //   false
+      // );
+      // document.addEventListener(
+      //   "drop",
+      //   function (e) {
+      //     e.preventDefault();
+      //     e.stopPropagation();
+      //     handleFiles(e.dataTransfer.files);
+      //   },
+      //   false
+      // );
+
+      // Download text
+      function download() {
+        var a = document.createElement("a");
+        a.href = window.URL.createObjectURL(
+          new Blob(["CONTENT"], { type: "text/plain" })
+        );
+        a.download = "demo.txt";
+        a.click();
+      }
+
+      let downloadButton = document.getElementById("download-button");
+      downloadButton.addEventListener("click", downloadImage);
+
+      // Download image
+      function downloadImage() {
+        const canvas = document.getElementById("canvas");
+        const anchor = document.createElement("a");
+        anchor.href = canvas.toDataURL("image/png");
+        anchor.download = "IMAGE.PNG";
+        anchor.click();
+      }
     </script>
   </body>
 </html>
