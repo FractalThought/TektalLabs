@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title></title>
+  </head>
+  <body>
+    <input type="file" id="input" />
+    <button id="download-button">Ladda ner</button>
+
+    <script>
+      const input = document.querySelector('input[type="file"]');
+      function handleFiles(files) {
+        console.log(files);
+        const reader = new FileReader();
+        reader.onload = function () {
+          const lines = reader.result.split("\n").map(function (line) {
+            return line.split(",");
+          });
+          console.log(lines);
+        };
+        reader.readAsText(files[0]);
+      }
+
+      input.addEventListener(
+        "change",
+        function (e) {
+          handleFiles(input.files);
+        },
+        false
+      );
+
+      // Download text
+      function downloadText() {
+        var a = document.createElement("a");
+        a.href = window.URL.createObjectURL(
+          new Blob(["CONTENT"], { type: "text/plain" })
+        );
+        a.download = "demo.txt";
+        a.click();
+      }
+
+      let downloadButton = document.getElementById("download-button");
+      downloadButton.addEventListener("click", downloadText);
+    </script>
+  </body>
+</html>
