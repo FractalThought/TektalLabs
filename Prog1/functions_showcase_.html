@@ -19,12 +19,53 @@
     </style>
   </head>
   <body>
+    <button id="addition">3+5</button>
+    <button id="subtraction">5-3</button>
+    <button id="multiplication">3*5</button>
+
+    <button class="present">Hello world!</button>
+    <button class="present">Hallå eller!</button>
+    <button class="present">Hejsan hejsan</button>
+    <button class="present">Hej.</button>
+
     <script>
       const body = document.querySelector("body");
 
-      let newElement = document.createElement("p");
-      newElement.innerText = "Hello world!";
-      body.appendChild(newElement);
+      let additionButton = document.getElementById("addition");
+      additionButton.addEventListener("click", addition);
+
+      let subtractButton = document.getElementById("subtraction");
+      subtractButton.addEventListener("click", alertMe);
+
+      let presentButtons = document.getElementsByClassName("present");
+      for (let i = 0; i < presentButtons.length; i++) {
+        presentButtons[i].addEventListener("click", alertMe);
+      }
+
+      function alertMe(e) {
+        alert("hello!" + e.target.innerText);
+      }
+
+      function addition() {
+        presentResult("3+5", numberOne + numberTwo);
+        let newButton = document.createElement("button");
+        newButton.innerText = "Tjohej!";
+        newButton.classList.add("present");
+        newButton.addEventListener("click", alertMe);
+        body.appendChild(newButton);
+      }
+
+      let numberOne = 3;
+      let numberTwo = 5;
+
+      presentResult("5-3", numberTwo - numberOne);
+      presentResult("3*5", numberOne * numberTwo);
+
+      function presentResult(calculation, result) {
+        let newElement = document.createElement("p");
+        newElement.innerText = calculation + ": " + result;
+        body.appendChild(newElement);
+      }
     </script>
   </body>
 </html>
