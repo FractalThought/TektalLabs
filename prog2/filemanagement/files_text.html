@@ -35,11 +35,12 @@
         false
       );
 
-      // Download text
       function downloadText() {
-        var a = document.createElement("a");
+        let textToWrite = textContainer.value;
+
+        const a = document.createElement("a");
         a.href = window.URL.createObjectURL(
-          new Blob([textContainer.value], { type: "text/plain" })
+          new Blob([textToWrite], { type: "text/plain" })
         );
         a.download = "demo.txt";
         a.click();

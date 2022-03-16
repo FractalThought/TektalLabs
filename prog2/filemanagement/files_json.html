@@ -51,11 +51,12 @@
         false
       );
 
-      // Download text
       function downloadJSON() {
-        var a = document.createElement("a");
+        let objectToWrite = result;
+
+        const a = document.createElement("a");
         a.href = window.URL.createObjectURL(
-          new Blob([JSON.stringify(result)], { type: "text/plain" })
+          new Blob([JSON.stringify(objectToWrite)], { type: "text/plain" })
         );
         a.download = "file.json";
         a.click();
