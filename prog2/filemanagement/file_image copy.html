@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Files Image</title>
+  </head>
+  <body>
+    <canvas id="canvas"></canvas>
+    <div>
+      <input type="file" id="file-input" />
+      <button id="download-button">Ladda ner</button>
+      <button id="reset-button">Reset</button>
+      <button id="grayscale-button">Grayscale</button>
+      <button id="redscale-button">Redscale</button>
+      <button id="filter-button">Filter</button>
+    </div>
+
+    <script>
+      const input = document.getElementById("file-input");
+
+      const canvas = document.getElementById("canvas");
+      let context = canvas.getContext("2d");
+
+      let imageData = null;
+      let originalImageData = null;
+      const img = new Image();
+
+      let downloadButton = document.getElementById("download-button");
+      downloadButton.addEventListener("click", downloadImage);
+
+      let resetButton = document.getElementById("reset-button");
+      resetButton.addEventListener("click", resetImageData);
+
+      let grayscaleButton = document.getElementById("grayscale-button");
+      grayscaleButton.addEventListener("click", grayscale);
+
+      let redscaleButton = document.getElementById("redscale-button");
+      redscaleButton.addEventListener("click", redscale);
+
+      let filterButton = document.getElementById("filter-button");
+      filterButton.addEventListener("click", filter);
+
+      function updateImage() {
+        context.putImageData(imageData, 0, 0);
+      }
+
+      function cacheImageData() {
+        originalImageData = new Uint8ClampedArray(imageData.data.length);
+        for (let i = 0; i < imageData.data.length; i += 1) {
+          originalImageData[i] = imageData.data[i];
+        }
+
+        updateImage();
+        context.filter = "";
+        context.drawImage(img, 0, 0);
+      }
+
+      function resetImageData() {
+        for (let i = 0; i < imageData.data.length; i += 1) {
+          imageData.data[i] = originalImageData[i];
+        }
+        context.putImageData(imageData, 0, 0);
+      }
+
+      function handleFiles(files) {
+        console.log(files);
+        const reader = new FileReader();
+        reader.addEventListener("load", () => {
+          loadImage(reader);
+        });
+        reader.readAsDataURL(files[0]);
+      }
+
+      function loadImage(reader) {
+        img.onload = function () {
+          canvas.width = img.width;
+          canvas.height = img.height;
+          context.drawImage(img, 0, 0);
+
+          imageData = context.getImageData(0, 0, canvas.width, canvas.height);
+          originalImageData = imageData.data;
+          context.putImageData(imageData, 0, 0);
+
+          cacheImageData();
+
+          document.body.appendChild(canvas);
+        };
+        img.src = reader.result;
+      }
+
+      input.addEventListener(
+        "change",
+        function (e) {
+          handleFiles(input.files);
+        },
+        false
+      );
+
+      function downloadImage() {
+        const anchor = document.createElement("a");
+        anchor.href = canvas.toDataURL("image/png", 1);
+        anchor.download = "image.png";
+        anchor.click();
+      }
+
+      function grayscale() {
+        const data = imageData.data;
+        for (let i = 0; i <= data.length; i += 4) {
+          const avg = (data[i] + data[i + 1] + data[i + 2]) / 3;
+          data[i] = avg;
+          data[i + 1] = avg;
+          data[i + 2] = avg;
+        }
+
+        updateImage();
+      }
+
+      function redscale() {
+        const data = imageData.data;
+        for (let i = 0; i <= data.length; i += 4) {
+          data[i] = 255;
+        }
+
+        updateImage();
+      }
+
+      function greenscale() {
+        const data = imageData.data;
+        for (let i = 0; i <= data.length; i += 4) {
+          data[i + 1] = 255;
+        }
+
+        updateImage();
+      }
+      function bluescale() {
+        const data = imageData.data;
+        for (let i = 0; i <= data.length; i += 4) {
+          data[i + 2] = 255;
+        }
+
+        updateImage();
+      }
+      function test() {
+        const data = imageData.data;
+        for (let i = 0; i <= data.length; i += 9) {
+          data[i] = data[i + 400];
+          data[i + 1] = data[i + 500];
+          data[i + 2] = data[i - 600];
+        }
+
+        updateImage();
+      }
+
+      // TODO: Testa att ändra värdena här för att skapa konstiga effekter
+      function test2() {
+        const data = imageData.data;
+        for (let i = data.length / 2; i <= data.length; i += 9) {
+          data[i] = data[i + 400];
+          data[i + 1] = data[i + 500];
+          data[i + 2] = data[i - 600];
+        }
+
+        updateImage();
+      }
+      function test3() {
+        const data = imageData.data;
+        for (let i = data.length / 2; i <= data.length; i += 4) {
+          data[i + 3] = 50;
+        }
+
+        updateImage();
+      }
+
+      function rgbSplit() {
+        const data = imageData.data;
+        for (let i = 0; i <= data.length; i += 4) {
+          data[i - 250] = data[i + 0];
+          data[i + 100] = data[i + 1];
+          data[i - 250] = data[i + 2];
+        }
+
+        updateImage();
+      }
+
+      // Filter funkar endast med sig själv, inte med de andra
+      function filter() {
+        // canvas.style.filter = "saturate(200%)";
+        // context.filter = "sepia(100%) blur(10px) hue-rotate()";
+        // context.filter = "hue-rotate(30deg)";
+        context.filter = "invert(100%)";
+        context.drawImage(img, 0, 0);
+      }
+    </script>
+  </body>
+</html>

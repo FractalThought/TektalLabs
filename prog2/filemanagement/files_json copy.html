@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Files JSON</title>
+  </head>
+  <body>
+    <input type="file" id="file-input" />
+    <button id="download-button">Ladda ner</button>
+    <div id="container">
+      <p>Name: <span id="character--name"></span></p>
+      <p>Level: <span id="character--level"></span></p>
+      <p>Race: <span id="character--race"></span></p>
+      <p>Class: <span id="character--class"></span></p>
+    </div>
+
+    <script>
+      const input = document.getElementById("file-input");
+      const characterName = document.getElementById("character--name");
+      const characterLevel = document.getElementById("character--level");
+      const characterRace = document.getElementById("character--race");
+      const characterClass = document.getElementById("character--class");
+
+      let result = null;
+
+      function setCharacter(characterInfo) {
+        characterName.innerText = characterInfo.name;
+        characterLevel.innerText = characterInfo.level;
+        characterRace.innerText = characterInfo.race;
+        characterClass.innerText = characterInfo.class;
+
+        characterInfo.location = "Matsalen";
+      }
+
+      function handleFiles(files) {
+        console.log(files);
+        const reader = new FileReader();
+        reader.onload = function () {
+          result = JSON.parse(reader.result); // Parse the result into an object
+
+          setCharacter(result);
+        };
+        reader.readAsText(files[0]);
+      }
+
+      input.addEventListener(
+        "change",
+        function (e) {
+          handleFiles(input.files);
+        },
+        false
+      );
+
+      function downloadJSON() {
+        let objectToWrite = result;
+
+        const a = document.createElement("a");
+        a.href = window.URL.createObjectURL(
+          new Blob([JSON.stringify(objectToWrite)], { type: "text/plain" })
+        );
+        a.download = "file.json";
+        a.click();
+      }
+
+      let downloadButton = document.getElementById("download-button");
+      downloadButton.addEventListener("click", downloadJSON);
+    </script>
+  </body>
+</html>

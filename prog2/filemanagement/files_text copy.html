@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Files Text</title>
+  </head>
+  <body>
+    <input type="file" id="file-input" />
+    <button id="download-button">Ladda ner</button>
+    <textarea id="text-container" cols="30" rows="10"></textarea>
+
+    <script>
+      const input = document.getElementById("file-input");
+      const textContainer = document.getElementById("text-container");
+      function handleFiles(files) {
+        console.log(files);
+        const reader = new FileReader();
+        reader.onload = function () {
+          textContainer.value = reader.result;
+          // const lines = reader.result.split("\n").map(function (line) {
+          //   return line.split(",");
+          // });
+          // console.log(lines);
+        };
+        reader.readAsText(files[0]);
+      }
+
+      input.addEventListener(
+        "change",
+        function (e) {
+          handleFiles(input.files);
+        },
+        false
+      );
+
+      function downloadText() {
+        let textToWrite = textContainer.value;
+
+        const a = document.createElement("a");
+        a.href = window.URL.createObjectURL(
+          new Blob([textToWrite], { type: "text/plain" })
+        );
+        a.download = "demo.txt";
+        a.click();
+      }
+
+      let downloadButton = document.getElementById("download-button");
+      downloadButton.addEventListener("click", downloadText);
+    </script>
+  </body>
+</html>
