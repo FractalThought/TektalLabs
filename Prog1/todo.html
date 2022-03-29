@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo</title>
+  </head>
+  <body>
+    <label for="input-task">Task name</label>
+    <input type="text" name="" id="input-task" />
+    <label for="input-is-priority">Priority?</label>
+    <input type="checkbox" name="" id="input-is-priority" />
+
+    <label for="input-location-home">Home</label>
+    <input
+      type="radio"
+      name="task-location"
+      id="input-location-home"
+      value="Home"
+      checked
+    />
+    <label for="input-location-school">School</label>
+    <input
+      type="radio"
+      name="task-location"
+      id="input-location-school"
+      value="School"
+    />
+    <label for="input-location-other">Other</label>
+    <input
+      type="radio"
+      name="task-location"
+      id="input-location-other"
+      value="Other"
+    />
+
+    <label for="input-type">Type of Task</label>
+    <select name="" id="input-type">
+      <option value="Homework">Homework</option>
+      <option value="Chore">Chore</option>
+      <option value="Gaming">Gaming</option>
+      <option value="Pet">Pet</option>
+    </select>
+
+    <button id="submit-task">Add task</button>
+
+    <ul id="task-list"></ul>
+
+    <script>
+      let inputTask = document.getElementById("input-task");
+      let inputIsPriority = document.getElementById("input-is-priority");
+      let inputType = document.getElementById("input-type");
+      let submitButton = document.getElementById("submit-task");
+      let taskList = document.getElementById("task-list");
+
+      submitButton.addEventListener("click", addTask);
+
+      function addTask() {
+        let taskName = inputType.value + ": " + inputTask.value;
+        if (inputIsPriority.checked) {
+          taskName = "! " + taskName;
+        }
+
+        let locationValue = document.querySelector(
+          "input[name='task-location']:checked"
+        ).value;
+
+        taskName += " @" + locationValue;
+
+        let newTaskElement = document.createElement("li");
+        newTaskElement.innerText = taskName;
+        taskList.appendChild(newTaskElement);
+
+        // Rensar vårt inputfält
+        inputTask.value = "";
+        inputTask.focus();
+
+        // radio
+        // dropdown
+      }
+    </script>
+  </body>
+</html>
