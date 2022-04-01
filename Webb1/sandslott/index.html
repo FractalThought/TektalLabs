@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sandslott</title>
+
+    <style>
+      body {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+
+      header {
+        background: #f2994a;
+        color: white;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        padding: 20px;
+      }
+
+      header a {
+        color: white;
+        text-decoration: none;
+      }
+
+      #hero {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 60vh;
+        background: url("hero-background.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+
+      #hero h2 {
+        max-width: 800px;
+        color: white;
+        text-align: center;
+      }
+
+      .button {
+        text-decoration: none;
+        color: white;
+        font-size: 32px;
+        background: #f2994a;
+        padding: 10px;
+        border-radius: 10px;
+        transition: 0.3s;
+      }
+
+      .button:hover {
+        background: #c56510;
+      }
+
+      #highlight {
+        display: flex;
+        justify-content: space-evenly;
+        padding: 40px;
+      }
+
+      #highlight p {
+        font-size: 36px;
+        max-width: 500px;
+      }
+
+      #gallery {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        background: #f2f2f2;
+        padding: 40px;
+        color: #f2994a;
+      }
+
+      #gallery > div {
+        display: flex;
+        gap: 20px;
+      }
+
+      #information {
+        display: flex;
+        flex-direction: column;
+
+        align-items: center;
+        padding: 40px;
+      }
+
+      #information > * {
+        max-width: 80vw;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Sandslott.se</h1>
+      <div>
+        <a href="#">Galleri</a>
+        <a href="#">Kontakt</a>
+      </div>
+    </header>
+    <div id="hero">
+      <h2>
+        Vi startar världens bästa sandslottstävling nu i november, och vi vill
+        att du ska vara med!
+      </h2>
+      <a class="button" href="#">Häng med!</a>
+    </div>
+
+    <div id="highlight">
+      <p>
+        har du sett ett coolt sandslott nyligen? Vi vill också se! Använd taggen
+        #sandslott på Instagram och Facebook!
+      </p>
+      <img src="highlight-image.jpg" alt="Sandslott" />
+    </div>
+
+    <div id="gallery">
+      <h2>Bildgalleri</h2>
+      <div>
+        <img src="gallery-1.jpg" alt="Galleribild" />
+        <img src="gallery-2.jpg" alt="Galleribild" />
+        <img src="gallery-3.jpg" alt="Galleribild" />
+      </div>
+    </div>
+    <div id="information">
+      <h2>Information</h2>
+
+      <p>
+        Amet suspendisse mi adipiscing consectetur suspendisse est justo quis.
+        Elit integer mauris pharetra, fames nam facilisi dictum at. Elementum
+        fusce nisl lectus quam duis. Enim in quis tincidunt tincidunt sit nisl.
+        Ullamcorper mattis nunc eleifend ut tortor aliquam. Nunc, neque, erat
+        volutpat enim amet. Donec ut bibendum aliquet risus ultrices blandit
+        bibendum egestas. Gravida non fames vestibulum et. Sed quisque purus
+        felis eget. Vulputate eu dignissim tempor lectus quis eu. Pulvinar
+        egestas porta ut nec est eget laoreet ac a.
+      </p>
+      <p>
+        Aliquet feugiat risus vitae massa, habitant eros risus nulla. Ut quam
+        leo quam elit, ornare vitae eu. Volutpat massa mauris et faucibus. Etiam
+        porttitor dui facilisis sapien, quam. Egestas proin donec arcu id arcu
+        phasellus nibh. Proin imperdiet velit facilisi viverra sed ipsum neque.
+        A, suspendisse nisl, erat leo, nulla gravida gravida lacinia. At eu urna
+        nulla sodales purus turpis.
+      </p>
+      <p>
+        Tristique eu ipsum, pretium arcu id neque, at sit. Aliquam lobortis
+        justo sapien libero a. Id purus vitae scelerisque magna est a erat
+        cursus. A sem interdum justo mauris tincidunt nisl in quam fermentum.
+        Accumsan massa neque magna felis. Diam aliquet fames amet ullamcorper
+        lectus dui sollicitudin quis diam. Ultrices tempus varius aliquam
+        pulvinar. Pellentesque leo integer tellus cras pellentesque purus,
+        ornare faucibus habitant. Feugiat eget ac nisi, consequat, et egestas
+        posuere mi. Eget morbi scelerisque dui, nulla diam.
+      </p>
+    </div>
+  </body>
+</html>
