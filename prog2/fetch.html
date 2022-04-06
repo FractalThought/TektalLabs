@@ -56,7 +56,9 @@ fetch("https://handlers.education.launchcode.org/static/weather.json").then( fun
 
 */
 
-      fetch("data.json").then(function (response) {
+      fetch(
+        "https://handlers.education.launchcode.org/static/weather.json"
+      ).then(function (response) {
         response.json().then(function (json) {
           const div = document.getElementById("container");
           // Add HTML that includes the JSON data
