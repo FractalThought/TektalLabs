@@ -17,10 +17,15 @@
           return response.json();
         })
         .then(function (data) {
-          console.log(data);
+          console.log(data.joke);
+          showJoke(data.joke);
         });
-      // .then((response) => response.json())
-      // .then((data) => console.log(data));
+
+      function showJoke(joke) {
+        let newElement = document.createElement("p");
+        newElement.innerText = joke;
+        document.body.appendChild(newElement);
+      }
     </script>
   </body>
 </html>
