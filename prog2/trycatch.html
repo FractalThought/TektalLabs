@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Undantagshantering</title>
+  </head>
+  <body>
+    <a href="https://javascript.info/try-catch">Javascript.info om TryCatch</a>
+    <a
+      href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/try...catch"
+      >MDN om TryCatch</a
+    >
+
+    <script>
+      // En funktion som finns och som vi kan kalla
+      // Har ett valfritt argument som, om satt till true, kastar ett error
+      function existingFunction(message, willThrow = false) {
+        if (willThrow) {
+          throw new Error("Fel från existingFunction (willThrow = true)");
+        }
+        console.log(message);
+      }
+
+      // Får referenserror, men skriptet stoppas inte för felet fångas (catch)
+      try {
+        nonExistingFunction();
+      } catch (error) {
+        console.log("Fel, kan inte hitta nonExistingFunction: " + error);
+      }
+
+      // Bevis för att funktionen fortsätter att fungera
+      existingFunction("Kallas direkt efter första tryCatch");
+
+      // Exempel på hur catch funkar i samband med fetch
+      // Om det blir något fel kommer det fångas av .catch
+      fetch("https://httpstat.us/404")
+        .then((response) => {
+          if (response.status >= 200 && response.status <= 299) {
+            return response.json(); // Om respons är ok, returnera objektet
+          } else {
+            throw Error(response.statusText); // om respons inte är ok, kasta felmeddelande
+          }
+          // Do something with response
+        })
+        .then((response) => {
+          existingFunction("Fetch har kommit fram");
+        })
+        .catch((error) => {
+          console.log("Fel vid hämtande: ", error);
+        });
+
+      existingFunction("Kallas direkt efter fetch");
+
+      // Kallar existingFunction med willThrow satt till true
+      // Detta gör att existingFunction kommer "kasta" ett error
+      try {
+        existingFunction("Meddelandet som kastar ett error", true);
+      } catch (error) {
+        console.log(error);
+      }
+
+      // Får referenserror och stoppar skriptet helt.
+      nonExistingFunction();
+      existingFunction("Sista meddelandet"); // kommer inte köras
+    </script>
+  </body>
+</html>
