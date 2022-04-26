@@ -11,7 +11,98 @@
       href="https://tektal.netlify.app/prog1/assignment/appideas/#What-to-watch?"
       >Appidéen</a
     >
+    <br />
 
-    <script></script>
+    <label for="avg-episode-time">Genomsnittlig tid per avsnitt</label>
+    <input type="number" id="avg-episode-time" />
+
+    <br />
+
+    <label for="time-hours">Tid i timmar</label>
+    <input type="number" id="time-hours" />
+
+    <label for="time-minutes">Tid i minuter</label>
+    <input type="number" id="time-minutes" />
+
+    <button id="button-calc">Räkna ut antalet avsnitt</button>
+
+    <output id="number-of-episodes"></output>
+
+    <script>
+      // Länka inputfälten med document.getElementById
+
+      let avgEpisodeTimeInput = document.getElementById("avg-episode-time");
+      let timeHoursInput = document.getElementById("time-hours");
+      let timeMinutesInput = document.getElementById("time-minutes");
+
+      let numberOfEpisodesOutput =
+        document.getElementById("number-of-episodes");
+
+      let calcButtton = document.getElementById("button-calc");
+
+      calcButtton.addEventListener("click", calcNumberOfEpisodes);
+
+      function calcNumberOfEpisodes() {
+        // Hämta ut värdena från mina inputs och lagra dem i variabler
+
+        // Använder parseInt för att hämta ut inputet till faktiska nummer och inte strängar (default)
+
+        let avgEpisodeTime = parseInt(avgEpisodeTimeInput.value);
+        let timeHours = parseInt(timeHoursInput.value) * 60; // Konverterar timmar till minuter
+        let timeMinutes = parseInt(timeMinutesInput.value);
+
+        let totalTime = timeHours + timeMinutes;
+        // Köra uträkningen (tid / genomsnittlig tid = antal)
+
+        // console.log(avgEpisodeTime);
+        // console.log(timeHours);
+        // console.log(timeMinutes);
+        // console.log(totalTime);
+
+        let episodeCount = totalTime / avgEpisodeTime;
+        episodeCount = Math.floor(episodeCount); // Floor gör att vi avrundar nedåt så vi bara får ut antalet hela avsnitt
+        console.log(episodeCount);
+
+        // Presentera antalet för användaren
+        numberOfEpisodesOutput.value = episodeCount;
+      }
+
+      /*
+      
+      Ways to improve:
+      - Presentera användaren med antalet minuter som blir över
+      - Presentera användaren att det blir exakt så här många avsnitt
+      - Ändra input-system (bara skriva tex 1h 20min)
+      - Hämta avg length från en API? Man skriver in namnet på showen och det hämtas automatiskt?
+
+      */
+
+      // Länka button med document.getElementById
+      // Länka button till ett event med addEventListener
+
+      /*
+      Tar in en genomsnittligt tid på ett avsnitt i en serie i minuter
+      samt en längd i timmar och minuter som användaren har i fritid
+      och räkna ut och visa antalet hela avsnitt som användaren hinner titta på.
+
+      */
+
+      // Hämta input från användaren (genomsnittlig tid på avsnitt i minuter)
+
+      // input-fält
+      // länka det till mitt skript
+      // Hämta ut värdet när man trycker på en knapp
+
+      // Hämta input längd i timmar och minuter
+
+      // 2 input, en för timmar och en för minuter
+
+      // Räkna ut och visa antalet hela avsnitt
+
+      // Pseudokod:
+      // konvertera input-timmar till minuter och lägga till input-minuter
+      // input-tiden / genomsnittlig-tid = antalet
+      // Output antalet till ett element
+    </script>
   </body>
 </html>
